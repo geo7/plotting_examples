@@ -28,7 +28,7 @@ cleanup.
 
 
 
-## [`bar_plot_w_custom_cmap`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py)
+## [`bar_plot_w_custom_cmap`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py)
 
 Bar plot with custom cmap.
 
@@ -43,7 +43,7 @@ Example of:
 
 ![](images/y2022/bar_plot_w_custom_cmap.png)
 
-## [`binary_outcome_variable`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/binary_outcome_variable/plot.py)
+## [`binary_outcome_variable`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/binary_outcome_variable/plot.py)
 
 Plot dichotomous variable.
 
@@ -51,7 +51,7 @@ Simple dots with median lines - might be nice to add a kde to this as well.
 
 ![](images/y2022/binary_outcome_variable.png)
 
-## [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py)
+## [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py)
 
 Bar plot with distributions.
 
@@ -63,7 +63,7 @@ Data was from tidy tuesday.
 
 ![](images/y2022/box_plot_w_scatter_distributions.png)
 
-## [`histogram_with_two_variables`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/histogram_with_two_variables/plot.py)
+## [`histogram_with_two_variables`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/histogram_with_two_variables/plot.py)
 
 Histogram created from scratch using matplotlib.
 
@@ -74,7 +74,7 @@ The result is pretty rubbish :)
 
 ![](images/y2022/histogram_with_two_variables.png)
 
-## [`line_plot_fill_between`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/line_plot_fill_between/plot.py)
+## [`line_plot_fill_between`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/line_plot_fill_between/plot.py)
 
 Visualise time tracking, how much over/under time.
 
@@ -89,7 +89,7 @@ Example of:
 
 ![](images/y2022/line_plot_fill_between.png)
 
-## [`opinium_barchart`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/opinium_barchart/plot.py)
+## [`opinium_barchart`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/opinium_barchart/plot.py)
 
 Bar chart style copied from Opinium.
 
@@ -97,7 +97,7 @@ Saw this on twitter (i think) and thought I'd recreate it in mpl.
 
 ![](images/y2022/opinium_barchart.png)
 
-## [`pandas_stacked_bars_with_values`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py)
+## [`pandas_stacked_bars_with_values`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py)
 
 Horizontal stacked bars, based off of pandas.
 
@@ -109,7 +109,7 @@ Example of:
 
 ![](images/y2022/pandas_stacked_bars_with_values.png)
 
-## [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/pos_neg_split_hbar/plot.py)
+## [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/pos_neg_split_hbar/plot.py)
 
 Create split horizontal bar chart, split by dichotomous variable, with bar classifications.
 
@@ -117,7 +117,7 @@ Can be a bit messy - not sure I'm much of a fan - but wanted to re-create anyway
 
 ![](images/y2022/pos_neg_split_hbar.png)
 
-## [`scatter_distributions`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/scatter_distributions/plot.py)
+## [`scatter_distributions`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/scatter_distributions/plot.py)
 
 Distributions of multiple variables.
 
@@ -131,7 +131,7 @@ Example of:
 
 ![](images/y2022/scatter_distributions.png)
 
-## [`scatter_matrix_w_kde_on_diag`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py)
+## [`scatter_matrix_w_kde_on_diag`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py)
 
 Scatter matrix with kde instead of histogram on the diagonal.
 
@@ -140,7 +140,7 @@ the non-diagonal plots could be whatever instead of a scatter plot I guess...
 
 ![](images/y2022/scatter_matrix_w_kde_on_diag.png)
 
-## [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py)
+## [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py)
 
 Scatter plot with text inserted to scatter points.
 
@@ -152,7 +152,7 @@ Example of:
 
 ![](images/y2022/scatter_w_outlined_text_insert.png)
 
-## [`sns_violin_plot_custom`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/sns_violin_plot_custom/plot.py)
+## [`sns_violin_plot_custom`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/sns_violin_plot_custom/plot.py)
 
 Edit SNS violin plot.
 
@@ -163,7 +163,7 @@ What's here doesn't look good - just an example of changing defaults.
 
 ![](images/y2022/sns_violin_plot_custom.png)
 
-## [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/split_x_axis_custom_legend/plot.py)
+## [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/split_x_axis_custom_legend/plot.py)
 
 Example of creating multiple x-axis in order to plot year / months.
 
@@ -178,7 +178,7 @@ Example of:
 
 ![](images/y2022/split_x_axis_custom_legend.png)
 
-## [`uk_hexmap`](https://github.com/geo7/plotting_examples/blob/master/plotting_examples/y2022/uk_hexmap/plot.py)
+## [`uk_hexmap`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/uk_hexmap/plot.py)
 
 Hex map for the UK constituencies.
 
