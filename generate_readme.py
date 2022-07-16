@@ -11,7 +11,7 @@ from pathlib import Path
 
 from PIL import Image
 
-CODE = "https://github.com/geo7/plotting_examples/blob/master/plotting_examples/{}/plot.py"
+CODE = "https://github.com/geo7/plotting_examples/blob/main/plotting_examples/{}/plot.py"
 
 
 def resize_image_if_needed(
