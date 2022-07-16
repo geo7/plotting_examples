@@ -1,0 +1,418 @@
+schema: '2.0'
+stages:
+  sav_to_csv_and_json:
+    cmd: python -m plotting_examples.binary_outcome_variable.plot
+    deps:
+    - path: plotting_examples/binary_outcome_variable/plot.py
+      md5: 1427c5fcadda1f47e11a817d2f55e61e
+      size: 2109
+  binary_outcome:
+    cmd: python -m plotting_examples.binary_outcome_variable.plot
+    deps:
+    - path: plotting_examples/binary_outcome_variable/plot.py
+      md5: b8b284298598c316bd0c661e7705ffda
+      size: 2101
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_binary_outcome_variable_plot.png
+      md5: 3e15bc2bdba0ea318625e341fc600adc
+      size: 68657
+  histogram_with_two_variables:
+    cmd: python -m plotting_examples.histogram_with_two_variables.plot
+    deps:
+    - path: plotting_examples/histogram_with_two_variables/plot.py
+      md5: f176e507379760e333fd3d21a0a03f66
+      size: 4958
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_histogram_with_two_variables_plot.png
+      md5: a42aff20a7970bd5a593dbb5e4a72083
+      size: 121044
+  pandas_stacked_bars_with_values:
+    cmd: python -m plotting_examples.pandas_stacked_bars_with_values.plot
+    deps:
+    - path: plotting_examples/pandas_stacked_bars_with_values/plot.py
+      md5: 41f46cb867b53e3d1fa2bd9ce9a7e59b
+      size: 4276
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_pandas_stacked_bars_with_values_plot.png
+      md5: b444b9c40539997369b306794dd55383
+      size: 109980
+  scatter_distributions:
+    cmd: python -m plotting_examples.scatter_distributions.plot
+    deps:
+    - path: plotting_examples/scatter_distributions/plot.py
+      md5: ca9e0719035769cb951018cdc60cae5a
+      size: 6101
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_scatter_distributions_plot.png
+      md5: ff1ea112d284d6995f21d1555da17868
+      size: 1048818
+  split_x_axis_custom_legend:
+    cmd: python -m plotting_examples.split_x_axis_custom_legend.plot
+    deps:
+    - path: plotting_examples/split_x_axis_custom_legend/plot.py
+      md5: 4cbef0469f1542bbba40f26080fa8147
+      size: 6216
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_split_x_axis_custom_legend_plot.png
+      md5: e31a09751ac8a7cb68c33f573888c04c
+      size: 2059481
+  trump_church_votes_2020:
+    cmd: python -m plotting_examples.trump_church_votes_2020.plot
+    deps:
+    - path: plotting_examples/trump_church_votes_2020/plot.py
+      md5: df8965d04acf1363a89adc51dbf8d823
+      size: 5092
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_trump_church_votes_2020_plot.png
+      md5: 79f742eb79b7cbcac22518634984fefe
+      size: 442400
+  work_time_tracking_plot:
+    cmd: python -m plotting_examples.work_time_tracking.plot
+    deps:
+    - path: plotting_examples/work_time_tracking/plot.py
+      md5: 295be3a691582e23266edcfdf75abe9f
+      size: 4618
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_work_time_tracking_plot.png
+      md5: 022854ffd33d0c1052ad561d3b0a29e4
+      size: 420434
+  bar_plot_w_custom_cmap:
+    cmd: python -m plotting_examples.2022.bar_plot_w_custom_cmap.plot
+    deps:
+    - path: plotting_examples/2022/bar_plot_w_custom_cmap/plot.py
+      md5: 672de9f4bd9f4e7c2095b572b58e1b9e
+      size: 5697
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_2022_bar_plot_w_custom_cmap_plot.png
+      md5: 149eaf7e57549fb2119ef508746f653d
+      size: 324973
+  sns_violin_plot_custom:
+    cmd: python -m plotting_examples.sns_violin_plot_custom.plot
+    deps:
+    - path: plotting_examples/sns_violin_plot_custom/plot.py
+      md5: 01e55cb3dd5935e2f317fdc90dbe64a4
+      size: 1523
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_sns_violin_plot_custom_plot.png
+      md5: 54134457d7681189e81518fc6214f4ec
+      size: 100869
+  scatter_matrix_w_kde_on_diag:
+    cmd: python -m plotting_examples.scatter_matrix_w_kde_on_diag.plot
+    deps:
+    - path: plotting_examples/scatter_matrix_w_kde_on_diag/plot.py
+      md5: 5f9b69d8a3762e617653d044b3fec13a
+      size: 2216
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_scatter_matrix_w_kde_on_diag_plot.png
+      md5: 7a6dec845e9bb9fe0a667b8b7937ae9c
+      size: 504189
+  pos_neg_split_hbar:
+    cmd: python -m plotting_examples.pos_neg_split_hbar.plot
+    deps:
+    - path: plotting_examples/pos_neg_split_hbar/plot.py
+      md5: 882938cd457ffdec5c72e67f2235c181
+      size: 5017
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_pos_neg_split_hbar_plot.png
+      md5: ea865e0df1293cc02d7843aa4140a387
+      size: 160025
+  default_plot:
+    cmd: python -m plotting_examples.default_plot.plot
+    deps:
+    - path: plotting_examples/default_plot/plot.py
+      md5: 7b305baa02cf195d47332f3b2586265a
+      size: 865
+    outs:
+    - path: images/GSL_projects_plotting_examples_plotting_examples_default_plot_plot.png
+      md5: 215cc189594c56704b2ab62ea6983b6d
+      size: 54181
+  2022_default_plot:
+    cmd: python -m plotting_examples.2022.default_plot.plot
+    deps:
+    - path: plotting_examples/2022/default_plot/plot.py
+      md5: 3006f0a7bbbea7a22224095255f4bb5e
+      size: 838
+    outs:
+    - path: images/2022/default_plot.png
+      md5: 63f2d738e25563eff978e01bc834e480
+      size: 25121
+  2022_binary_outcome_variable:
+    cmd: python -m plotting_examples.2022.binary_outcome_variable.plot
+    deps:
+    - path: plotting_examples/2022/binary_outcome_variable/plot.py
+      md5: 97ac99d8c9299f723f4e730fbfea90e2
+      size: 2182
+    outs:
+    - path: images/2022/binary_outcome_variable.png
+      md5: 605d409516acb29e92ba53afd5203a94
+      size: 36620
+  2022_pandas_stacked_bars_with_values:
+    cmd: python -m plotting_examples.2022.pandas_stacked_bars_with_values.plot
+    deps:
+    - path: plotting_examples/2022/pandas_stacked_bars_with_values/plot.py
+      md5: 51afea4e6b06813f61887aad963b2b5d
+      size: 4357
+    outs:
+    - path: images/2022/pandas_stacked_bars_with_values.png
+      md5: 187f7f8d78b2a7bee60517b0bca5f463
+      size: 57606
+  2022_pos_neg_split_hbar:
+    cmd: python -m plotting_examples.2022.pos_neg_split_hbar.plot
+    deps:
+    - path: plotting_examples/2022/pos_neg_split_hbar/plot.py
+      md5: 606148fb6a0601d3a2828b24a62f8614
+      size: 5097
+    outs:
+    - path: images/2022/pos_neg_split_hbar.png
+      md5: 7102b82280627073c912a37cbb5bddfe
+      size: 82422
+  2022_histogram_with_two_variables:
+    cmd: python -m plotting_examples.2022.histogram_with_two_variables.plot
+    deps:
+    - path: plotting_examples/2022/histogram_with_two_variables/plot.py
+      md5: f1a1d50c1b05b9927b749d0acaad438e
+      size: 5248
+    outs:
+    - path: images/2022/histogram_with_two_variables.png
+      md5: 5ee46a399d1635bbca0acbb38baa417d
+      size: 67845
+  2022_split_x_axis_custom_legend:
+    cmd: python -m plotting_examples.2022.split_x_axis_custom_legend.plot
+    deps:
+    - path: plotting_examples/2022/split_x_axis_custom_legend/plot.py
+      md5: d96a9320c4b7009e9f110bb891d1182d
+      size: 6297
+    outs:
+    - path: images/2022/split_x_axis_custom_legend.png
+      md5: da1c3324e4d037a49696bdb1bae75bd5
+      size: 1080487
+  2022_scatter_matrix_w_kde_on_diag:
+    cmd: python -m plotting_examples.2022.scatter_matrix_w_kde_on_diag.plot
+    deps:
+    - path: plotting_examples/2022/scatter_matrix_w_kde_on_diag/plot.py
+      md5: 5f0e7e326606d868b8c4411c288e00cb
+      size: 2522
+    outs:
+    - path: images/2022/scatter_matrix_w_kde_on_diag.png
+      md5: 14a39a1df810953354cde040c1cf10fb
+      size: 217990
+  2022_sns_violin_plot_custom:
+    cmd: python -m plotting_examples.2022.sns_violin_plot_custom.plot
+    deps:
+    - path: plotting_examples/2022/sns_violin_plot_custom/plot.py
+      md5: e5aa38595903134348a4b97e12af4b51
+      size: 1604
+    outs:
+    - path: images/2022/sns_violin_plot_custom.png
+      md5: 7a451fc7c780d5e165f7325327ded3ce
+      size: 56996
+  2022_work_time_tracking:
+    cmd: python -m plotting_examples.2022.work_time_tracking.plot
+    deps:
+    - path: plotting_examples/2022/work_time_tracking/plot.py
+      md5: 41af922980ad6d06a0813c3f6dff37af
+      size: 4704
+    outs:
+    - path: images/2022/work_time_tracking.png
+      md5: 5e468011855755d5a8238e7e8b51063c
+      size: 227174
+  2022_scatter_distributions:
+    cmd: python -m plotting_examples.2022.scatter_distributions.plot
+    deps:
+    - path: plotting_examples/2022/scatter_distributions/plot.py
+      md5: 0be18ddf32bdd5a0a5768d214d49c5c2
+      size: 6181
+    outs:
+    - path: images/2022/scatter_distributions.png
+      md5: d102a1f3534a68d11439103b85f7b4b1
+      size: 520358
+  2022_bar_plot_w_custom_cmap:
+    cmd: python -m plotting_examples.2022.bar_plot_w_custom_cmap.plot
+    deps:
+    - path: plotting_examples/2022/bar_plot_w_custom_cmap/plot.py
+      md5: d4e5771aeb11a5c78cf16bc01681b014
+      size: 5778
+    outs:
+    - path: images/2022/bar_plot_w_custom_cmap.png
+      md5: f90122b668c246a8ef62d4c8302daf68
+      size: 174070
+  2022_week42:
+    cmd: python -m plotting_examples.2022.week42.plot
+    deps:
+    - path: plotting_examples/2022/week42/plot.py
+      md5: 1abbfdf49c2abe180492a606e4760c98
+      size: 12120
+    outs:
+    - path: images/2022/week42.png
+      md5: f6bcc5fd9c521a9a8b20c8a11659004d
+      size: 1146056
+  2022_box_plot_w_scatter_distributions:
+    cmd: python -m plotting_examples.2022.box_plot_w_scatter_distributions.plot
+    deps:
+    - path: plotting_examples/2022/box_plot_w_scatter_distributions/plot.py
+      md5: 0ac3c9c54beeac3e1e5395ab8c6a04b0
+      size: 12148
+    outs:
+    - path: images/2022/box_plot_w_scatter_distributions.png
+      md5: a4db1dd69327dcf7166701d7dce61ef6
+      size: 478450
+  2022_line_plot_fill_between:
+    cmd: python -m plotting_examples.2022.line_plot_fill_between.plot
+    deps:
+    - path: plotting_examples/2022/line_plot_fill_between/plot.py
+      md5: d4de88d563946fdd04daa65fa4e46280
+      size: 5016
+    outs:
+    - path: images/2022/line_plot_fill_between.png
+      md5: 31ccdfaec1719946aaaa86fe69e01626
+      size: 231583
+  y2022_box_plot_w_scatter_distributions:
+    cmd: python -m plotting_examples.y2022.box_plot_w_scatter_distributions.plot
+    deps:
+    - path: plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py
+      md5: 0ade7c33d066271a943a7b2aaa77d1a4
+      size: 11973
+    outs:
+    - path: images/y2022/box_plot_w_scatter_distributions.png
+      md5: 8fc17ea84700e10c9df778fabf62566e
+      size: 470103
+  y2022_sns_violin_plot_custom:
+    cmd: python -m plotting_examples.y2022.sns_violin_plot_custom.plot
+    deps:
+    - path: plotting_examples/y2022/sns_violin_plot_custom/plot.py
+      md5: a870655b146517145736c58c708f911f
+      size: 1972
+    outs:
+    - path: images/y2022/sns_violin_plot_custom.png
+      md5: a41d59941cf8e42d9e3ce5fcfbf29b92
+      size: 68240
+  y2022_bar_plot_w_custom_cmap:
+    cmd: python -m plotting_examples.y2022.bar_plot_w_custom_cmap.plot
+    deps:
+    - path: plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py
+      md5: 1f6be5f16df91f7fcdde8aa407392442
+      size: 6008
+    outs:
+    - path: images/y2022/bar_plot_w_custom_cmap.png
+      md5: 04019cdf160c42cc7d8a5e3864758f1f
+      size: 174879
+  y2022_histogram_with_two_variables:
+    cmd: python -m plotting_examples.y2022.histogram_with_two_variables.plot
+    deps:
+    - path: plotting_examples/y2022/histogram_with_two_variables/plot.py
+      md5: ad7f7041c1b94ce908c9dbae15593204
+      size: 5777
+    outs:
+    - path: images/y2022/histogram_with_two_variables.png
+      md5: 7c6f4b5e4ebdb76c501cca9d68b0294c
+      size: 58637
+  y2022_binary_outcome_variable:
+    cmd: python -m plotting_examples.y2022.binary_outcome_variable.plot
+    deps:
+    - path: plotting_examples/y2022/binary_outcome_variable/plot.py
+      md5: 8516767514fcb5a62db06ca3abae82e7
+      size: 2568
+    outs:
+    - path: images/y2022/binary_outcome_variable.png
+      md5: 7012b50b568a8cc5fb485100624dd81f
+      size: 36645
+  y2022_pos_neg_split_hbar:
+    cmd: python -m plotting_examples.y2022.pos_neg_split_hbar.plot
+    deps:
+    - path: plotting_examples/y2022/pos_neg_split_hbar/plot.py
+      md5: a7d520b380f0dc53f6c0963b97ec8e77
+      size: 5771
+    outs:
+    - path: images/y2022/pos_neg_split_hbar.png
+      md5: 1c9713a1e71f663cc02d3dc1170c80c4
+      size: 73712
+  y2022_scatter_matrix_w_kde_on_diag:
+    cmd: python -m plotting_examples.y2022.scatter_matrix_w_kde_on_diag.plot
+    deps:
+    - path: plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py
+      md5: ee7f6e26cf1c713a113f59036ba30b75
+      size: 3072
+    outs:
+    - path: images/y2022/scatter_matrix_w_kde_on_diag.png
+      md5: 83d6e2ca03fe7e550f80faa6271aa625
+      size: 232079
+  y2022_line_plot_fill_between:
+    cmd: python -m plotting_examples.y2022.line_plot_fill_between.plot
+    deps:
+    - path: plotting_examples/y2022/line_plot_fill_between/plot.py
+      md5: c5f7c8a288ce4c22e12136d1868e907f
+      size: 5037
+    outs:
+    - path: images/y2022/line_plot_fill_between.png
+      md5: 31ccdfaec1719946aaaa86fe69e01626
+      size: 231583
+  y2022_pandas_stacked_bars_with_values:
+    cmd: python -m plotting_examples.y2022.pandas_stacked_bars_with_values.plot
+    deps:
+    - path: plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py
+      md5: 5b03d8f103caed46bf6c59c71e3d0888
+      size: 4786
+    outs:
+    - path: images/y2022/pandas_stacked_bars_with_values.png
+      md5: 2f82a471d1585f66dd289981d7b1d4f5
+      size: 62051
+  y2022_split_x_axis_custom_legend:
+    cmd: python -m plotting_examples.y2022.split_x_axis_custom_legend.plot
+    deps:
+    - path: plotting_examples/y2022/split_x_axis_custom_legend/plot.py
+      md5: d8988a437e78184778131d54f5dd7f45
+      size: 6834
+    outs:
+    - path: images/y2022/split_x_axis_custom_legend.png
+      md5: 856cdb5545a22057d50de7cc0bc98bf4
+      size: 1625628
+  y2022_scatter_distributions:
+    cmd: python -m plotting_examples.y2022.scatter_distributions.plot
+    deps:
+    - path: plotting_examples/y2022/scatter_distributions/plot.py
+      md5: e7d5445434bc868ec96f19f4c5ed168a
+      size: 6466
+    outs:
+    - path: images/y2022/scatter_distributions.png
+      md5: b2cb505750338f124e7bb0824ceef156
+      size: 546755
+  y2022_default_plot:
+    cmd: python -m plotting_examples.y2022.default_plot.plot
+    deps:
+    - path: plotting_examples/y2022/default_plot/plot.py
+      md5: e702d212a5a61e03ab1aca02222f94af
+      size: 1184
+    outs:
+    - path: images/y2022/default_plot.png
+      md5: 132649d44fc3889d9498d2756025d2b7
+      size: 24778
+  y2022_scatter_w_outlined_text_insert:
+    cmd: python -m plotting_examples.y2022.scatter_w_outlined_text_insert.plot
+    deps:
+    - path: plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py
+      md5: 7c52ad4fc6dbdca7ca2658e0340bf909
+      size: 5215
+    outs:
+    - path: images/y2022/scatter_w_outlined_text_insert.png
+      md5: 4dd827c3af4a19480e4e3905d82d33e6
+      size: 481441
+  y2022_opinium_barchart:
+    cmd: python -m plotting_examples.y2022.opinium_barchart.plot
+    deps:
+    - path: plotting_examples/y2022/opinium_barchart/plot.py
+      md5: d4f060d9edb21b04a20ca3b7b389f9ad
+      size: 6063
+    outs:
+    - path: images/y2022/opinium_barchart.png
+      md5: bc49d39d17feac701700f1f2ec5096cf
+      size: 65293
+  y2022_uk_hexmap:
+    cmd: python -m plotting_examples.y2022.uk_hexmap.plot
+    deps:
+    - path: plotting_examples/y2022/uk_hexmap/plot.py
+      md5: d570bb3b48f7c45fa86775ff6965ad2e
+      size: 3882
+    outs:
+    - path: images/y2022/uk_hexmap.png
+      md5: 70907949640d6d2e8b7a018e384bf198
+      size: 570385

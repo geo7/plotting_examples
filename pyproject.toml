@@ -1,0 +1,34 @@
+[tool.isort]
+profile = "black"
+known_first_party = "plotting_examples"
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY"
+add_imports="from __future__ import annotations"
+
+
+[tool.black]
+line-length = 80
+
+
+[tool.pylint."MESSAGES CONTROL"]
+# Default of 5 is a bit strict, esp for plotting methods.
+max-args = 10
+good-names = [
+    "ax", # mpl axis
+    # Some typical variable names
+    "x",
+    "y",
+    "y1",
+    "y2",
+    # Used in grouping
+    "g",
+    # Sample size
+    "N",
+    # dataframe...
+    "df",
+    "dt",
+    # Classic...
+    "i",
+    "j",
+    # I don't agree with Pylint default bad-names.
+    "bar",
+]

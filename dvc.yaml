@@ -1,0 +1,121 @@
+stages:
+  y2022_bar_plot_w_custom_cmap:
+    cmd: python -m plotting_examples.y2022.bar_plot_w_custom_cmap.plot
+    deps:
+    - plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py
+    outs:
+    - images/y2022/bar_plot_w_custom_cmap.png:
+        cache: false
+    wdir: .
+  y2022_binary_outcome_variable:
+    cmd: python -m plotting_examples.y2022.binary_outcome_variable.plot
+    deps:
+    - plotting_examples/y2022/binary_outcome_variable/plot.py
+    outs:
+    - images/y2022/binary_outcome_variable.png:
+        cache: false
+    wdir: .
+  y2022_box_plot_w_scatter_distributions:
+    cmd: python -m plotting_examples.y2022.box_plot_w_scatter_distributions.plot
+    deps:
+    - plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py
+    outs:
+    - images/y2022/box_plot_w_scatter_distributions.png:
+        cache: false
+    wdir: .
+  y2022_default_plot:
+    cmd: python -m plotting_examples.y2022.default_plot.plot
+    deps:
+    - plotting_examples/y2022/default_plot/plot.py
+    outs:
+    - images/y2022/default_plot.png:
+        cache: false
+    wdir: .
+  y2022_histogram_with_two_variables:
+    cmd: python -m plotting_examples.y2022.histogram_with_two_variables.plot
+    deps:
+    - plotting_examples/y2022/histogram_with_two_variables/plot.py
+    outs:
+    - images/y2022/histogram_with_two_variables.png:
+        cache: false
+    wdir: .
+  y2022_line_plot_fill_between:
+    cmd: python -m plotting_examples.y2022.line_plot_fill_between.plot
+    deps:
+    - plotting_examples/y2022/line_plot_fill_between/plot.py
+    outs:
+    - images/y2022/line_plot_fill_between.png:
+        cache: false
+    wdir: .
+  y2022_opinium_barchart:
+    cmd: python -m plotting_examples.y2022.opinium_barchart.plot
+    deps:
+    - plotting_examples/y2022/opinium_barchart/plot.py
+    outs:
+    - images/y2022/opinium_barchart.png:
+        cache: false
+    wdir: .
+  y2022_pandas_stacked_bars_with_values:
+    cmd: python -m plotting_examples.y2022.pandas_stacked_bars_with_values.plot
+    deps:
+    - plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py
+    outs:
+    - images/y2022/pandas_stacked_bars_with_values.png:
+        cache: false
+    wdir: .
+  y2022_pos_neg_split_hbar:
+    cmd: python -m plotting_examples.y2022.pos_neg_split_hbar.plot
+    deps:
+    - plotting_examples/y2022/pos_neg_split_hbar/plot.py
+    outs:
+    - images/y2022/pos_neg_split_hbar.png:
+        cache: false
+    wdir: .
+  y2022_scatter_distributions:
+    cmd: python -m plotting_examples.y2022.scatter_distributions.plot
+    deps:
+    - plotting_examples/y2022/scatter_distributions/plot.py
+    outs:
+    - images/y2022/scatter_distributions.png:
+        cache: false
+    wdir: .
+  y2022_scatter_matrix_w_kde_on_diag:
+    cmd: python -m plotting_examples.y2022.scatter_matrix_w_kde_on_diag.plot
+    deps:
+    - plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py
+    outs:
+    - images/y2022/scatter_matrix_w_kde_on_diag.png:
+        cache: false
+    wdir: .
+  y2022_scatter_w_outlined_text_insert:
+    cmd: python -m plotting_examples.y2022.scatter_w_outlined_text_insert.plot
+    deps:
+    - plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py
+    outs:
+    - images/y2022/scatter_w_outlined_text_insert.png:
+        cache: false
+    wdir: .
+  y2022_sns_violin_plot_custom:
+    cmd: python -m plotting_examples.y2022.sns_violin_plot_custom.plot
+    deps:
+    - plotting_examples/y2022/sns_violin_plot_custom/plot.py
+    outs:
+    - images/y2022/sns_violin_plot_custom.png:
+        cache: false
+    wdir: .
+  y2022_split_x_axis_custom_legend:
+    cmd: python -m plotting_examples.y2022.split_x_axis_custom_legend.plot
+    deps:
+    - plotting_examples/y2022/split_x_axis_custom_legend/plot.py
+    outs:
+    - images/y2022/split_x_axis_custom_legend.png:
+        cache: false
+    wdir: .
+  y2022_uk_hexmap:
+    cmd: python -m plotting_examples.y2022.uk_hexmap.plot
+    deps:
+    - plotting_examples/y2022/uk_hexmap/plot.py
+    outs:
+    - images/y2022/uk_hexmap.png:
+        cache: false
+    wdir: .

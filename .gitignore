@@ -1,0 +1,32 @@
+# Caches
+**/.ipynb_checkpoints/*
+**/__pycache__/*
+*.pyc
+.Rhistory
+.venv/
+venv/
+
+# Data
+data/**/*
+!data/**/*.gitkeep
+
+# IDE config
+.idea/
+ipython_config.py
+profile_default/
+
+# Other
+.DS_Store
+config/config.py
+.Rproj.user
+.Rproj.user/
+*.Rproj
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# https://www.gitignore.io/

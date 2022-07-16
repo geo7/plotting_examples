@@ -1,0 +1,13 @@
+black==22.3.0
+dvc==2.11.0
+fastparquet==0.8.1
+flake8==4.0.1
+jupyter==1.0.0
+jupyterlab==3.4.3
+matplotlib==3.5.2
+mypy==0.961
+nb-black==1.0.7
+pre-commit==2.19.0
+pyarrow==8.0.0
+pylint==2.14.3
+seaborn==0.11.2
