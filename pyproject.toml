@@ -31,4 +31,6 @@ good-names = [
     "j",
     # I don't agree with Pylint default bad-names.
     "bar",
+    "xs",
+    "ys",
 ]

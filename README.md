@@ -16,6 +16,7 @@ cleanup.
 * [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples#box_plot_w_scatter_distributions)
 * [`histogram_with_two_variables`](https://github.com/geo7/plotting_examples#histogram_with_two_variables)
 * [`line_plot_fill_between`](https://github.com/geo7/plotting_examples#line_plot_fill_between)
+* [`meaningless_points`](https://github.com/geo7/plotting_examples#meaningless_points)
 * [`opinium_barchart`](https://github.com/geo7/plotting_examples#opinium_barchart)
 * [`pandas_stacked_bars_with_values`](https://github.com/geo7/plotting_examples#pandas_stacked_bars_with_values)
 * [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples#pos_neg_split_hbar)
@@ -88,6 +89,15 @@ Example of:
 - filling between lines
 
 ![](images/y2022/line_plot_fill_between.png)
+
+## [`meaningless_points`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/meaningless_points/plot.py)
+
+Some random points.
+
+No real meaning to this - was messing about with some bokeh style bits (the effect, not the python
+library), so dumping here. Didn't really end up as I'd have liked.
+
+![](images/y2022/meaningless_points.png)
 
 ## [`opinium_barchart`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/opinium_barchart/plot.py)
 

@@ -47,6 +47,14 @@ stages:
     - images/y2022/line_plot_fill_between.png:
         cache: false
     wdir: .
+  y2022_meaningless_points:
+    cmd: python -m plotting_examples.y2022.meaningless_points.plot
+    deps:
+    - plotting_examples/y2022/meaningless_points/plot.py
+    outs:
+    - images/y2022/meaningless_points.png:
+        cache: false
+    wdir: .
   y2022_opinium_barchart:
     cmd: python -m plotting_examples.y2022.opinium_barchart.plot
     deps:

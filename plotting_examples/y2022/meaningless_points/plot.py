@@ -3,16 +3,15 @@
 Some random points.
 
 No real meaning to this - was messing about with some bokeh style bits (the effect, not the python
-library), so dumping here. Didn't really end up as I'd have liked.
+library), so dumping here. Not sure I'm mad on the output - it's also slow as hell.
 """
 from __future__ import annotations
 
-import pathlib
 import itertools
+import pathlib
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-
 import numpy as np
 
 from plotting_examples import dvc_entry, save_plot_output
@@ -21,7 +20,7 @@ from plotting_examples.y2022 import metadata
 
 def main() -> mpl.figure.Figure:
     """Main."""
-    fig, ax = plt.subplots(figsize=(20, 5))
+    fig, ax = plt.subplots(figsize=(10, 10))
     ax.set_facecolor("black")
 
     def make_point(
@@ -50,7 +49,8 @@ def main() -> mpl.figure.Figure:
             metadata.color.PINK_COLOUR,
             metadata.color.LIGHT_GREEN,
             metadata.color.BLUE,
-        ]
+            metadata.color.DEEPER_GREEN,
+        ],
     )
 
     plot_params = [
@@ -61,11 +61,15 @@ def main() -> mpl.figure.Figure:
         (2, 0.3, 8_00, 50),
         #     (3, 0.35, 5_00, 6),
         #     (2, 0.35, 2_00, 6),
-        (2, 0.35, 2_00, 2),
-        (9, 0.3, 5_00, 2),
-        (5, 0.2, 2_000, 50),
+        (2, 0.35, 2_00, 5),
+        (5, 0.05, 5_00, 9),
+        (4, 0.15, 5_00, 9),
+        (5, 0.1, 2_000, 50),
+        (3, 0.1, 3_000, 50),
+        (2, 0.1, 6_000, 50),
         (2, 0.09, 5_000, 50),
-        (2, 0.008, 15_000, 150),
+        (5, 0.008, 15_000, 150),
+        (3, 0.08, 2000, 20),
     ]
     rng = np.random.default_rng(2)
 

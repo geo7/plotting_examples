@@ -416,3 +416,13 @@ stages:
     - path: images/y2022/uk_hexmap.png
       md5: 70907949640d6d2e8b7a018e384bf198
       size: 570385
+  y2022_meaningless_points:
+    cmd: python -m plotting_examples.y2022.meaningless_points.plot
+    deps:
+    - path: plotting_examples/y2022/meaningless_points/plot.py
+      md5: 208cefc449cdd7c62901e6da6c996db1
+      size: 2755
+    outs:
+    - path: images/y2022/meaningless_points.png
+      md5: b4c6b7e5a02ba55b3e811eb7d584ae90
+      size: 272768
