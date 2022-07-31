@@ -14,7 +14,6 @@ cleanup.
 * [`bar_plot_w_custom_cmap`](https://github.com/geo7/plotting_examples#bar_plot_w_custom_cmap)
 * [`binary_outcome_variable`](https://github.com/geo7/plotting_examples#binary_outcome_variable)
 * [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples#box_plot_w_scatter_distributions)
-* [`histogram_with_two_variables`](https://github.com/geo7/plotting_examples#histogram_with_two_variables)
 * [`line_plot_fill_between`](https://github.com/geo7/plotting_examples#line_plot_fill_between)
 * [`meaningless_points`](https://github.com/geo7/plotting_examples#meaningless_points)
 * [`opinium_barchart`](https://github.com/geo7/plotting_examples#opinium_barchart)
@@ -23,8 +22,8 @@ cleanup.
 * [`scatter_distributions`](https://github.com/geo7/plotting_examples#scatter_distributions)
 * [`scatter_matrix_w_kde_on_diag`](https://github.com/geo7/plotting_examples#scatter_matrix_w_kde_on_diag)
 * [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples#scatter_w_outlined_text_insert)
-* [`sns_violin_plot_custom`](https://github.com/geo7/plotting_examples#sns_violin_plot_custom)
 * [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples#split_x_axis_custom_legend)
+* [`stacked_bar_with_single_bars_layout`](https://github.com/geo7/plotting_examples#stacked_bar_with_single_bars_layout)
 * [`uk_hexmap`](https://github.com/geo7/plotting_examples#uk_hexmap)
 
 
@@ -50,6 +49,8 @@ Plot dichotomous variable.
 
 Simple dots with median lines - might be nice to add a kde to this as well.
 
+The y-axis is redundant here as there are only two options (`0.6` doesn't make any sense).
+
 ![](images/y2022/binary_outcome_variable.png)
 
 ## [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py)
@@ -63,17 +64,6 @@ etc, for no particular reason.
 Data was from tidy tuesday.
 
 ![](images/y2022/box_plot_w_scatter_distributions.png)
-
-## [`histogram_with_two_variables`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/histogram_with_two_variables/plot.py)
-
-Histogram created from scratch using matplotlib.
-
-There are custom bar's created for each bin, instead of using ax.bar, I think it was originally
-based on something but i can't find the original / reference now so am just left with this.
-
-The result is pretty rubbish :)
-
-![](images/y2022/histogram_with_two_variables.png)
 
 ## [`line_plot_fill_between`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/line_plot_fill_between/plot.py)
 
@@ -95,7 +85,7 @@ Example of:
 Some random points.
 
 No real meaning to this - was messing about with some bokeh style bits (the effect, not the python
-library), so dumping here. Didn't really end up as I'd have liked.
+library), so dumping here. Not sure I'm mad on the output - it's also slow as hell.
 
 ![](images/y2022/meaningless_points.png)
 
@@ -148,6 +138,11 @@ Scatter matrix with kde instead of histogram on the diagonal.
 Could probably adapt pd.scatter_matrix instead of doing it from scratch. Though with this approach
 the non-diagonal plots could be whatever instead of a scatter plot I guess...
 
+Would be good to make the upper diagonals differ from the lower diagonals a bit... maybe some sort
+of table from pd.cut on the others or whatever.
+
+I'd probably just use subplot_mosaic as well now - that's grown on me a lot since this.
+
 ![](images/y2022/scatter_matrix_w_kde_on_diag.png)
 
 ## [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py)
@@ -161,17 +156,6 @@ Example of:
 - Outlining text elements in a plot.
 
 ![](images/y2022/scatter_w_outlined_text_insert.png)
-
-## [`sns_violin_plot_custom`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/sns_violin_plot_custom/plot.py)
-
-Edit SNS violin plot.
-
-Simple example of adjusting the output of a sns plot - I don't typically use sns, but ofc the
-objects can be accessed/iterated/edited over as with any other mpl axis.
-
-What's here doesn't look good - just an example of changing defaults.
-
-![](images/y2022/sns_violin_plot_custom.png)
 
 ## [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/split_x_axis_custom_legend/plot.py)
 
@@ -187,6 +171,21 @@ Example of:
 - multiple x-axis to display years / months
 
 ![](images/y2022/split_x_axis_custom_legend.png)
+
+## [`stacked_bar_with_single_bars_layout`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/stacked_bar_with_single_bars_layout/plot.py)
+
+Layout containing two bar plots and a bivariate plot between them.
+
+In this case it's a silly example of some data containing the social grade of Labradors, as well as
+the education group. The main plot is a stacked bar containing the breakdown of education group for
+each social grade.
+
+Don't think I'm too keen on the code for this plot - though it's not always so clear (to me) how to
+make "nice" code with a lot of matplotlib stuff.
+
+Obviously, the data is made up.
+
+![](images/y2022/stacked_bar_with_single_bars_layout.png)
 
 ## [`uk_hexmap`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/uk_hexmap/plot.py)
 

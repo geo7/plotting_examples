@@ -160,6 +160,7 @@ def main() -> mpl.figure.Figure:
         # ax.xaxis.set_ticks(ticks)
 
         loc = mpl.ticker.MultipleLocator(base=5.0)
+        ax.set_xlim(0, 100)
         ax.xaxis.set_major_locator(loc)
 
     fig.set_tight_layout(True)

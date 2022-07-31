@@ -50,6 +50,17 @@ def resize_image_if_needed(
         new_image.save(im)
 
 
+EXCLUDE_PLOTS = [
+    # This is just the template for starting a new plot off.
+    "default_plot",
+    # Got bored of seeing this one.
+    "sns_violin_plot_custom",
+    # This was was annoying as well - it's an example of creating a histogram from scratch with
+    # patches which eh.
+    "histogram_with_two_variables",
+]
+
+
 def main() -> int:
     year = "y2022"
     # Will have to update this when there's a different year I guess but for now meh.
@@ -58,7 +69,6 @@ def main() -> int:
     readme_data = {}
 
     for img in images:
-        # breakpoint()
         # Eh - bit of a hack but should work...
         dir_from_img_path = str(img).split(f"{year}/")[-1].split(".png")[0]
 
@@ -91,7 +101,7 @@ def main() -> int:
     readme_data = {
         x: readme_data[x]
         for x in sorted(readme_data)
-        if "default_plot" not in x
+        if not any(exclude in x for exclude in EXCLUDE_PLOTS)
     }
 
     # Create values to append to readme.

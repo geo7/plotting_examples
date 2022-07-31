@@ -3,6 +3,8 @@
 Plot dichotomous variable.
 
 Simple dots with median lines - might be nice to add a kde to this as well.
+
+The y-axis is redundant here as there are only two options (`0.6` doesn't make any sense).
 """
 
 from __future__ import annotations

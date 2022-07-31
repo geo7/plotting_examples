@@ -4,6 +4,11 @@ Scatter matrix with kde instead of histogram on the diagonal.
 
 Could probably adapt pd.scatter_matrix instead of doing it from scratch. Though with this approach
 the non-diagonal plots could be whatever instead of a scatter plot I guess...
+
+Would be good to make the upper diagonals differ from the lower diagonals a bit... maybe some sort
+of table from pd.cut on the others or whatever.
+
+I'd probably just use subplot_mosaic as well now - that's grown on me a lot since this.
 """
 from __future__ import annotations
 
@@ -40,7 +45,6 @@ def main() -> mpl.figure.Figure:
             nrows=numvars,
             ncols=numvars,
             figsize=(15, 15),
-            # figsize=(5, 5),
             constrained_layout=True,
         )
 
@@ -58,6 +62,7 @@ def main() -> mpl.figure.Figure:
                     color=metadata.color.PINK_COLOUR,
                 )
                 axes[x, y].set_facecolor(metadata.color.BACKGROUND_COLOUR)
+                axes[x, y].grid(linestyle=":", alpha=0.2)
 
         # Label the diagonal subplots...
         for i, label in enumerate(names):

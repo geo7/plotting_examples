@@ -310,8 +310,8 @@ stages:
     cmd: python -m plotting_examples.y2022.binary_outcome_variable.plot
     deps:
     - path: plotting_examples/y2022/binary_outcome_variable/plot.py
-      md5: 8516767514fcb5a62db06ca3abae82e7
-      size: 2568
+      md5: 56e585e7eda879c47701dadc2bca477e
+      size: 2660
     outs:
     - path: images/y2022/binary_outcome_variable.png
       md5: 7012b50b568a8cc5fb485100624dd81f
@@ -330,12 +330,12 @@ stages:
     cmd: python -m plotting_examples.y2022.scatter_matrix_w_kde_on_diag.plot
     deps:
     - path: plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py
-      md5: ee7f6e26cf1c713a113f59036ba30b75
-      size: 3072
+      md5: 781e19ee04ca6f4aded863b5251994fd
+      size: 3337
     outs:
     - path: images/y2022/scatter_matrix_w_kde_on_diag.png
-      md5: 83d6e2ca03fe7e550f80faa6271aa625
-      size: 232079
+      md5: 00b5027bd9d32afc9f844b98beb6daf8
+      size: 316821
   y2022_line_plot_fill_between:
     cmd: python -m plotting_examples.y2022.line_plot_fill_between.plot
     deps:
@@ -350,12 +350,12 @@ stages:
     cmd: python -m plotting_examples.y2022.pandas_stacked_bars_with_values.plot
     deps:
     - path: plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py
-      md5: 5b03d8f103caed46bf6c59c71e3d0888
-      size: 4786
+      md5: 41d4ce6750aaaa3e22b0276fdd3d6946
+      size: 4814
     outs:
     - path: images/y2022/pandas_stacked_bars_with_values.png
-      md5: 2f82a471d1585f66dd289981d7b1d4f5
-      size: 62051
+      md5: 66f6fe5fbda3b3803f41405a0834607f
+      size: 61398
   y2022_split_x_axis_custom_legend:
     cmd: python -m plotting_examples.y2022.split_x_axis_custom_legend.plot
     deps:
@@ -426,3 +426,13 @@ stages:
     - path: images/y2022/meaningless_points.png
       md5: b4c6b7e5a02ba55b3e811eb7d584ae90
       size: 272768
+  y2022_stacked_bar_with_single_bars_layout:
+    cmd: python -m plotting_examples.y2022.stacked_bar_with_single_bars_layout.plot
+    deps:
+    - path: plotting_examples/y2022/stacked_bar_with_single_bars_layout/plot.py
+      md5: a2dcd618a07bf65a7965cda89e4d56f2
+      size: 15243
+    outs:
+    - path: images/y2022/stacked_bar_with_single_bars_layout.png
+      md5: fb81b5ed74a8b9991d48a8e42ada43e2
+      size: 229955

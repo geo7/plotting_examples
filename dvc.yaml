@@ -119,6 +119,14 @@ stages:
     - images/y2022/split_x_axis_custom_legend.png:
         cache: false
     wdir: .
+  y2022_stacked_bar_with_single_bars_layout:
+    cmd: python -m plotting_examples.y2022.stacked_bar_with_single_bars_layout.plot
+    deps:
+    - plotting_examples/y2022/stacked_bar_with_single_bars_layout/plot.py
+    outs:
+    - images/y2022/stacked_bar_with_single_bars_layout.png:
+        cache: false
+    wdir: .
   y2022_uk_hexmap:
     cmd: python -m plotting_examples.y2022.uk_hexmap.plot
     deps:
