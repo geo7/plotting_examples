@@ -2,8 +2,8 @@
 """
 Visualise time tracking, how much over/under time.
 
-Mainly serves as an example of plotting with dates, and filling above / below particular values on a
-plot.
+Mainly serves as an example of plotting with dates, and filling above / below
+particular values on a plot.
 
 Example of:
 

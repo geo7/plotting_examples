@@ -33,32 +33,25 @@ def get_plotting_data() -> pd.DataFrame:
 
     data_list = []
     for g, dfg in df.groupby(["year"]):
+        if len(g) == 1:
+            g = g[0]
         x = dfg["distributor"]
-        df_a = (
-            x.value_counts()
-            .reset_index()
-            .rename(columns={"distributor": "count", "index": "distributor"})
-        )
+        df_a = x.value_counts().reset_index().assign(year=g)
+
         df_b = (
             x.value_counts(normalize=True)
             .reset_index()
-            .rename(
-                columns={"distributor": "percentage", "index": "distributor"},
-            )
-            .assign(
-                percentage=lambda x: x["percentage"].mul(100).round(1),
-                year=g,
-            )
+            .rename(columns={"proportion": "percentage"})
+            .assign(percentage=lambda x: x["percentage"].mul(100).round(1), year=g)
         )
-        df_c = pd.merge(df_a, df_b, on="distributor")
+
+        df_c = pd.merge(df_a, df_b, on=["distributor", "year"])
         df_c = df_c.sort_values("count", ascending=False)
         top = ["#ff2309"]
         other_colour = "#d0d0d0"
         n_size = 1
         if len(df_c) > n_size:
-            df_c["colour"] = top + [
-                other_colour for _ in range(len(df_c) - n_size)
-            ]
+            df_c["colour"] = top + [other_colour for _ in range(len(df_c) - n_size)]
         else:
             df_c["colour"] = top
         assert not df_c["colour"].isna().any()

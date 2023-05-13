@@ -3,6 +3,11 @@
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "editor.formatOnSave": true,
+    "rewrap.wrappingColumn": 87,
+    "editor.rulers": [
+        88
+    ],
+    // "peacock.color": "#42b883",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#65c89b",
         "activityBar.activeBorder": "#945bc4",
@@ -21,6 +26,5 @@
         "titleBar.activeForeground": "#15202b",
         "titleBar.inactiveBackground": "#42b88399",
         "titleBar.inactiveForeground": "#15202b99"
-    },
-    "peacock.color": "#42b883"
+    }
 }

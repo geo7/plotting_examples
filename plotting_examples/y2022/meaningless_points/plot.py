@@ -2,8 +2,9 @@
 """
 Some random points.
 
-No real meaning to this - was messing about with some bokeh style bits (the effect, not the python
-library), so dumping here. Not sure I'm mad on the output - it's also slow as hell.
+No real meaning to this - was messing about with some bokeh style bits (the effect, not
+the python library), so dumping here. Not sure I'm mad on the output - it's also slow
+as hell.
 """
 from __future__ import annotations
 

@@ -2,12 +2,12 @@
 """
 Layout containing two bar plots and a bivariate plot between them.
 
-In this case it's a silly example of some data containing the social grade of Labradors, as well as
-the education group. The main plot is a stacked bar containing the breakdown of education group for
-each social grade.
+In this case it's a silly example of some data containing the social grade of
+Labradors, as well as the education group. The main plot is a stacked bar containing
+the breakdown of education group for each social grade.
 
-Don't think I'm too keen on the code for this plot - though it's not always so clear (to me) how to
-make "nice" code with a lot of matplotlib stuff.
+Don't think I'm too keen on the code for this plot - though it's not always so clear
+(to me) how to make "nice" code with a lot of matplotlib stuff.
 
 Obviously, the data is made up.
 """
@@ -30,7 +30,8 @@ FONTSIZE_SUBTITLE = 20
 # Fontsize for the numbers displayed on bars.
 FONTSIZE_PLT_TXT = 10
 
-# What colour to outline the edges of bars with - if None then there's no outline created.
+# What colour to outline the edges of bars with - if None then there's no outline
+# created.
 BAR_EDGECOLOR: str | None = None
 # What level of rounding to apply to percentages displayed on bars.
 ROUNDING_PCTS = 1
@@ -61,31 +62,34 @@ LAYOUT = [
     # ["main", "main", "main", "main", "side"],
     ["main", "main", "main", "main", "side"],
     ["bottom", "bottom", "bottom", "bottom", "bottom_right_corner"],
-    # Could add a footer and _maybe_ the results of some association tests like chi square or
-    # whatever  - didn't bother for this though.
+    # Could add a footer and _maybe_ the results of some association tests like chi
+    # square or whatever  - didn't bother for this though.
     # ["foot_note", "foot_note", "foot_note", "foot_note", "foot_note"],
 ]
 
-# Colors which are used when the bar colour is dark/light respectively - so that the text is
-# readable (not dark font on dark bars etd).
+# Colors which are used when the bar colour is dark/light respectively - so that the
+# text is readable (not dark font on dark bars etd).
 COLOR_FONT_LIGHT = "#000000"
 COLOR_FONT_DARK = "#ffffff"
 
 
-def get_sample_data() -> tuple[
-    pd.DataFrame,
-    dict[str, dict[float, str]],
-    dict[str, str],
-]:
+def get_sample_data() -> (
+    tuple[
+        pd.DataFrame,
+        dict[str, dict[float, str]],
+        dict[str, str],
+    ]
+):
     """
     Generate sample data
 
-    Data structured similar to what you'd find in an SPSS sav file - where there's the df
-    (responses), cnl (metadata about the columns) and vvl (metadata about the values within the
-    columns)
+    Data structured similar to what you'd find in an SPSS sav file - where there's the
+    df (responses), cnl (metadata about the columns) and vvl (metadata about the values
+    within the columns)
     """
     rng = np.random.default_rng(1)
-    # Create dataframe with different distributions for each of the independent variable levels.
+    # Create dataframe with different distributions for each of the independent
+    # variable levels.
     df = (
         pd.concat(
             [
@@ -186,11 +190,12 @@ class PlotSections:
     """
     Holds plotting sections.
 
-    Just using this for namespacing really! Which was triggered by pylint complaining, which
-    probably isn't a good reason... Might usually just put this in a module but wanted all the code
-    in plot.py
+    Just using this for namespacing really! Which was triggered by pylint complaining,
+    which probably isn't a good reason... Might usually just put this in a module but
+    wanted all the code in plot.py
 
-    Considered adding the df, vvl, cnl to the class in an __init__ or whatever but left it as-is.
+    Considered adding the df, vvl, cnl to the class in an __init__ or whatever but left
+    it as-is.
     """
 
     # rename to bivariate.
@@ -239,9 +244,7 @@ class PlotSections:
             height = patch.get_height()
             x, y = patch.get_xy()
             data_i = data_matrix[i] if data_matrix[i] >= 3 else "-"
-            data_count_i = (
-                data_matrix_counts[i] if data_matrix[i] >= 3 else None
-            )
+            data_count_i = data_matrix_counts[i] if data_matrix[i] >= 3 else None
 
             if data_count_i is not None:
                 ann = f"{data_i} ({data_count_i})"
@@ -278,9 +281,7 @@ class PlotSections:
         cnl: dict[str, str],
     ) -> None:
         """Bar plot of the independent var."""
-        counts = (
-            df[VAR_INDEPENDENT].replace(vvl[VAR_INDEPENDENT]).value_counts()
-        )
+        counts = df[VAR_INDEPENDENT].replace(vvl[VAR_INDEPENDENT]).value_counts()
 
         ax.barh(
             counts.index,

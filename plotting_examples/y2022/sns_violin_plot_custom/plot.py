@@ -2,8 +2,8 @@
 """
 Edit SNS violin plot.
 
-Simple example of adjusting the output of a sns plot - I don't typically use sns, but ofc the
-objects can be accessed/iterated/edited over as with any other mpl axis.
+Simple example of adjusting the output of a sns plot - I don't typically use sns, but
+ofc the objects can be accessed/iterated/edited over as with any other mpl axis.
 
 What's here doesn't look good - just an example of changing defaults.
 """
@@ -49,8 +49,8 @@ def main() -> mpl.figure.Figure:
         # What size to increase/decreate the central boxplot section to.
         new_width = 30
 
-        # adjust the size of the boxplot - which of these list elements to edit is just guess and
-        # check.
+        # adjust the size of the boxplot - which of these list elements to edit is just
+        # guess and check.
         for vio_line in vio.lines[1::2]:
             vio_line.set_linewidth(new_width)
 

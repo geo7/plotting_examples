@@ -8,7 +8,7 @@ def extract_year_name_from_plot_py(*, file: str) -> tuple[str, str]:
     """
     Given a path such as
 
-    >>> /Users/g/GSL/projects/plotting_examples/plotting_examples/2022/default_plot/plot.py
+    >>> /home/.../plotting_examples/plotting_examples/y2022/default_plot/plot.py
 
     return
 

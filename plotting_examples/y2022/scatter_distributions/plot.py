@@ -2,8 +2,9 @@
 """
 Distributions of multiple variables.
 
-For a set of variables, each with an accompanying continuous variable on the same scale, plot the
-distributions of the continuous variable. Might be useful to have a kde overlaid here.
+For a set of variables, each with an accompanying continuous variable on the same scale,
+plot the distributions of the continuous variable. Might be useful to have a kde
+overlaid here.
 
 Example of:
 
@@ -17,7 +18,8 @@ import itertools
 import pathlib
 import re
 import textwrap
-from typing import Any, Mapping, cast
+from collections.abc import Mapping
+from typing import Any, cast
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -51,11 +53,7 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         "Also, PostgreSQL can be extended by the user in many ways, for example by "
         "adding new\n"
     )
-    words = [
-        x
-        for x in re.sub(r"\n|\(|\)", " ", document, flags=re.M).split(" ")
-        if x
-    ]
+    words = [x for x in re.sub(r"\n|\(|\)", " ", document, flags=re.M).split(" ") if x]
 
     def rand_string() -> str:
         """
@@ -66,8 +64,8 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         ).capitalize()
 
     def rand_cont() -> npt.NDArray[np.float64]:
-        # Generates a random bimodal distribution so that it looks roughly similar to what we might
-        # see from timing data or whatever.
+        # Generates a random bimodal distribution so that it looks roughly similar to
+        # what we might see from timing data or whatever.
         loc_min = 2
         loc_max = 7
         mode_1_loc = np.random.randint(loc_min, loc_max, size=1)
@@ -112,9 +110,9 @@ def categorical_scatters(
     cont_var: str,
     cat_var: str,
     labels: Mapping[Any, str],
-    # Used if there are particular colours for particular categories, if they're all meant to be the
-    # same color then just pass in with the same value for each category - they should all still be
-    # represented though.
+    # Used if there are particular colours for particular categories, if they're all
+    # meant to be the same color then just pass in with the same value for each category
+    # - they should all still be represented though.
     color_map: Mapping[Any, str] | None = None,
 ) -> plt.Axes:
     """Create plot."""
@@ -128,6 +126,8 @@ def categorical_scatters(
     y_ticks = []
 
     for g, dfg in data.groupby([cat_var]):
+        if len(g) == 1:
+            g = g[0]
         y_val += 1
         color = next(colors)
         color = color_map[g] if color_map else color
@@ -155,10 +155,7 @@ def categorical_scatters(
     )
     ax.yaxis.set_major_formatter(
         mpl.ticker.FixedFormatter(
-            [
-                "\n".join(textwrap.wrap(y_tick[1], width=30))
-                for y_tick in y_ticks
-            ],
+            ["\n".join(textwrap.wrap(y_tick[1], width=30)) for y_tick in y_ticks],
         ),
     )
 

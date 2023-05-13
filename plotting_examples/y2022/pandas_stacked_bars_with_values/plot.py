@@ -87,8 +87,8 @@ def main() -> mpl.figure.Figure:
     # Reverse columns as want to plot A as first bar.
     df_plot = df_plot.loc[:, df_plot.columns[::-1]]
 
-    # If you want to rename the axis y-labels it's easiest to just rename them in the dataframe
-    # columns.
+    # If you want to rename the axis y-labels it's easiest to just rename them in the
+    # dataframe columns.
 
     with plt.rc_context(
         {
@@ -137,8 +137,8 @@ def main() -> mpl.figure.Figure:
         ax.grid(linewidth=0.2)
         ax.set_axisbelow(True)
 
-        # Iterate over the data values, and patches of the axis, and plot the data value over the
-        # relevant patch.
+        # Iterate over the data values, and patches of the axis, and plot the data
+        # value over the relevant patch.
         data_matrix = df_plot.to_numpy().flatten()
 
         for i, patch in enumerate(ax.patches):

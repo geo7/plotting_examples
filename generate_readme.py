@@ -1,8 +1,8 @@
 """
 Generate plots at the end of the README.
 
-Bit of a hack - but works for now, this is mainly just to display all the created plots in the
-README.
+Bit of a hack - but works for now, this is mainly just to display all the created plots
+in the README.
 """
 from __future__ import annotations
 
@@ -11,7 +11,9 @@ from pathlib import Path
 
 from PIL import Image
 
-CODE = "https://github.com/geo7/plotting_examples/blob/main/plotting_examples/{}/plot.py"
+CODE = (
+    "https://github.com/geo7/plotting_examples/blob/main/plotting_examples/{}/plot.py"
+)
 
 
 def resize_image_if_needed(
@@ -43,8 +45,10 @@ def resize_image_if_needed(
         new_height = int(height * scale)
         new_width = int(width * scale)
         print(
-            f"Resizing : {im} by scale {round(scale,1)}, from "
-            f"{(width, height)} to {(new_width, new_height)}",
+            (
+                f"Resizing : {im} by scale {round(scale,1)}, from "
+                f"{(width, height)} to {(new_width, new_height)}"
+            ),
         )
         new_image = image.resize((new_width, new_height))
         new_image.save(im)
@@ -55,8 +59,8 @@ EXCLUDE_PLOTS = [
     "default_plot",
     # Got bored of seeing this one.
     "sns_violin_plot_custom",
-    # This was was annoying as well - it's an example of creating a histogram from scratch with
-    # patches which eh.
+    # This was was annoying as well - it's an example of creating a histogram from
+    # scratch with patches which eh.
     "histogram_with_two_variables",
 ]
 
@@ -73,10 +77,7 @@ def main() -> int:
         dir_from_img_path = str(img).split(f"{year}/")[-1].split(".png")[0]
 
         code_path = (
-            Path("./plotting_examples")
-            / str(year)
-            / dir_from_img_path
-            / "plot.py"
+            Path("./plotting_examples") / str(year) / dir_from_img_path / "plot.py"
         )
 
         if "DS_Store" in str(code_path):
@@ -84,6 +85,8 @@ def main() -> int:
 
         assert img.exists()
 
+        # Docstrings in plot.py contain context about the plot that's used in the
+        # README.
         with open(code_path, encoding="utf8") as fh:
             code_txt = fh.read()
         mod = ast.parse(code_txt)
@@ -97,7 +100,8 @@ def main() -> int:
             "doc_str": docstr,
         }
 
-    # Might as well sort the generated plots - don't want to include the default plot either.
+    # Might as well sort the generated plots - don't want to include the default plot
+    # either.
     readme_data = {
         x: readme_data[x]
         for x in sorted(readme_data)
@@ -109,7 +113,9 @@ def main() -> int:
 
     # Create some bullet points with the plot names
     for title, _ in readme_data.items():
-        readme_update += f"* [`{title}`](https://github.com/geo7/plotting_examples#{title})\n"
+        readme_update += (
+            f"* [`{title}`](https://github.com/geo7/plotting_examples#{title})\n"
+        )
 
     readme_update += "\n"
 

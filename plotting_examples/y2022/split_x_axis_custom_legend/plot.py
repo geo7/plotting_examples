@@ -2,8 +2,8 @@
 """
 Example of creating multiple x-axis in order to plot year / months.
 
-The fig size needs to be pretty large in order to squeeze all the month names etc in here. Generated
-data looks a mess on these plots.
+The fig size needs to be pretty large in order to squeeze all the month names etc in
+here. Generated data looks a mess on these plots.
 
 Example of:
 
@@ -80,16 +80,12 @@ def main() -> mpl.figure.Figure:
     )
     # aggregate for plotting
     df = (
-        df.groupby(["location", "song", pd.Grouper(key="date", freq="M")])[
-            "streams"
-        ]
+        df.groupby(["location", "song", pd.Grouper(key="date", freq="M")])["streams"]
         .sum()
         .reset_index()
         # Aggregated to months so don't need date names here.
         .assign(
-            date_name=df.date.dt.month_name()
-            + " "
-            + df.date.dt.year.astype(str),
+            date_name=df.date.dt.month_name() + " " + df.date.dt.year.astype(str),
             # Color mapping for song names to use in plotting
             color=lambda df: df["song"].map(
                 {
@@ -211,9 +207,7 @@ def main() -> mpl.figure.Figure:
     # Plot legend
 
     ax = axis[4]
-    custom_lines = [
-        Line2D([0], [0], color=x, lw=6) for x in color_dict.values()
-    ]
+    custom_lines = [Line2D([0], [0], color=x, lw=6) for x in color_dict.values()]
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
     ax.legend(
