@@ -1,13 +1,35 @@
+[tool.poetry]
+name = "plotting-examples"
+version = "0.1.0"
+description = "Example plots"
+authors = ["George Lenton <georgelenton@gmail.com>"]
+readme = "README.md"
+packages = [{include = "plotting_examples"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+dvc = "^2.56.0"
+fastparquet = "^2023.4.0"
+matplotlib = "^3.7.1"
+pyarrow = "^12.0.0"
+seaborn = "^0.12.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.1"
+pylint = "^2.17.4"
+flake8 = "^6.0.0"
+black = "^23.3.0"
+mypy = "^1.3.0"
+jupyterlab = "^3.6.3"
+
 [tool.isort]
 profile = "black"
 known_first_party = "plotting_examples"
 sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY"
 add_imports="from __future__ import annotations"
 
-
 [tool.black]
 line-length = 80
-
 
 [tool.pylint."MESSAGES CONTROL"]
 # Default of 5 is a bit strict, esp for plotting methods.
@@ -34,3 +56,7 @@ good-names = [
     "xs",
     "ys",
 ]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
