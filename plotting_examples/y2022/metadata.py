@@ -1,7 +1,8 @@
 """
 Metadata for plotting.
 
-I probably could / should use an rc params file for some of this stuff instead of calling from here.
+I probably could / should use an rc params file for some of this stuff instead of
+calling from here.
 """
 from __future__ import annotations
 

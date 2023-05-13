@@ -2,8 +2,8 @@
 """
 Hex map for the UK constituencies.
 
-Some meaningless generated data - small multiples with hex maps can be useful sometimes though.
-Could be good to add in the geographically accurate version as well.
+Some meaningless generated data - small multiples with hex maps can be useful sometimes
+though. Could be good to add in the geographically accurate version as well.
 """
 from __future__ import annotations
 
@@ -112,8 +112,7 @@ def main() -> mpl.figure.Figure:
 
         # Create legend.
         custom_lines = [
-            mpl.lines.Line2D([0], [0], color=x, lw=6)
-            for x in partycolors.values()
+            mpl.lines.Line2D([0], [0], color=x, lw=6) for x in partycolors.values()
         ]
         ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
         ax.legend(
@@ -125,8 +124,8 @@ def main() -> mpl.figure.Figure:
             borderpad=2,
         )
 
-        # The dataframe seems to assign items to categories based on the selected column sort order
-        # We can define a color map with a similar sorting
+        # The dataframe seems to assign items to categories based on the selected column
+        # sort order We can define a color map with a similar sorting
         colors = [partycolors[k] for k in sorted(partycolors.keys())]
 
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)

@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
     - id: end-of-file-fixer
     - id: trailing-whitespace
@@ -18,8 +18,14 @@ repos:
     - id: fix-encoding-pragma
       args: ["--remove"]
     - id: check-yaml
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  # Ruff version.
+  rev: "v0.0.267"
+  hooks:
+    - id: ruff
+      args: [--fix, --exit-non-zero-on-fix]
 -   repo: https://github.com/myint/autoflake
-    rev: v1.4
+    rev: v2.1.1
     hooks:
       - id: autoflake
         args: &autoflake
@@ -28,54 +34,18 @@ repos:
           - --expand-star-imports
           - --remove-duplicate-keys
           - --remove-unused-variables
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
-    -   &flake8
-        id: flake8
-        # additional_dependencies: [flake8-docstrings==1.5.0,flake8-nb==0.1.8,darglint==1.5.1]
-        args: ["--config=setup.cfg"]
-        exclude: .*?.ipynb
-    -   <<: *flake8
-        name: flake8 ipynb
-        entry: flake8_nb
-        types: [file]
-        files: \.ipynb$
 -   repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 23.3.0
     hooks:
     -   id: black
--   repo: https://github.com/dfm/black_nbconvert
-    rev: v0.4.0
-    hooks:
-    - id: black_nbconvert
--   repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.3
-    hooks:
-    -   id: add-trailing-comma
 -   repo: https://github.com/timothycrosley/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
     -   id: isort
         additional_dependencies: ["isort[pyproject,requirements]"]
         types: [python]
 -   repo: https://github.com/asottile/pyupgrade
-    rev: v2.34.0
+    rev: v3.4.0
     hooks:
     -   id: pyupgrade
-        args: ["--py37-plus"]
--   repo: local
-    hooks:
-    -   id: pylint
-        name: pylint
-        entry: pylint plotting_examples
-        language: system
-        always_run: true
-        pass_filenames: false
-    -   id: pytest
-        name: pytest
-        entry: pytest
-        language: system
-        stages: [manual]
-        always_run: true
-        pass_filenames: false
+        args: ["--py310-plus"]

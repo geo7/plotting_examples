@@ -2,11 +2,12 @@
 """
 Scatter matrix with kde instead of histogram on the diagonal.
 
-Could probably adapt pd.scatter_matrix instead of doing it from scratch. Though with this approach
-the non-diagonal plots could be whatever instead of a scatter plot I guess...
+Could probably adapt pd.scatter_matrix instead of doing it from scratch. Though with
+this approach the non-diagonal plots could be whatever instead of a scatter plot I
+guess...
 
-Would be good to make the upper diagonals differ from the lower diagonals a bit... maybe some sort
-of table from pd.cut on the others or whatever.
+Would be good to make the upper diagonals differ from the lower diagonals a bit... maybe
+some sort of table from pd.cut on the others or whatever.
 
 I'd probably just use subplot_mosaic as well now - that's grown on me a lot since this.
 """

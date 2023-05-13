@@ -2,8 +2,8 @@
 """
 Bar plot with custom cmap.
 
-Based on this tweet: https://twitter.com/ryanburge/status/1505602885215834112 - wanted to create
-something with a similar effect using mpl.
+Based on this tweet: https://twitter.com/ryanburge/status/1505602885215834112 - wanted
+to create something with a similar effect using mpl.
 
 Example of:
 
@@ -115,9 +115,7 @@ def main() -> mpl.figure.Figure:
             group_bar_values_unordered = (
                 dfg["church_attendance"].value_counts().to_dict()
             )
-            group_bar_values = {
-                x: group_bar_values_unordered[x] for x in ordering
-            }
+            group_bar_values = {x: group_bar_values_unordered[x] for x in ordering}
 
             barplot = ax.bar(
                 x=list(group_bar_values.keys()),
@@ -129,9 +127,9 @@ def main() -> mpl.figure.Figure:
             ax.set_yticks([], minor=True)
 
             def fmt(x: float, _pos: int) -> str:
-                # Not _too_ sure what this is about - think it's just what set_major_formatter
-                # applies? It passes two arguments though - the tick value (x) and the position
-                # (pos)...
+                # Not _too_ sure what this is about - think it's just what
+                # set_major_formatter applies? It passes two arguments though - the
+                # tick value (x) and the position (pos)...
                 return f"{int(x)}"
 
             ax.yaxis.set_major_formatter(mpl.ticker.FuncFormatter(fmt))
@@ -174,8 +172,8 @@ def main() -> mpl.figure.Figure:
             ax.tick_params(axis="y", colors="grey")
             ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
-        # Just format the final plot - it's blank - to just get rid of all plot params here. If
-        # there was more than one would need to handle a bit differently here.
+        # Just format the final plot - it's blank - to just get rid of all plot params
+        # here. If there was more than one would need to handle a bit differently here.
         ax = next(axis)
         ax.grid(alpha=0)
         ax.set_xticks([])

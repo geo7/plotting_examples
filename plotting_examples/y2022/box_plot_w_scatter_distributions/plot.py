@@ -2,9 +2,9 @@
 """
 Bar plot with distributions.
 
-Thought I'd create a bar plot with scatter plots of the distributions adjacent to the bars, it was
-based off something else but I can't remember what. Bar plots are created from scratch using hlines
-etc, for no particular reason.
+Thought I'd create a bar plot with scatter plots of the distributions adjacent to the
+bars, it was based off something else but I can't remember what. Bar plots are created
+from scratch using hlines etc, for no particular reason.
 
 Data was from tidy tuesday.
 """
@@ -146,7 +146,7 @@ def plot_data_for_weight_by_country(df: pd.DataFrame) -> pd.DataFrame:
 # }
 
 
-# --------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 
 # PLOTTING METHODS
 
@@ -249,10 +249,10 @@ def make_single_box(
     """Add boxplot to given axis."""
     plotting_data = pd.Series(values).describe().to_dict()
 
-    # ----------------------------------------------------------------------------------------------
-    # create the box - there's not _really_ any reason for this other than being curious at the time
-    # about creating a boxplot from scratch... it'd be a better idea i think to just create a
-    # rectangle instead.
+    # ----------------------------------------------------------------------------------
+    # create the box - there's not _really_ any reason for this other than being
+    # curious at the time about creating a boxplot from scratch... it'd be a better
+    # idea i think to just create a rectangle instead.
     boxp_hline(
         ax=ax,
         x_center=x_center,
@@ -286,7 +286,7 @@ def make_single_box(
         linewidth=linewidth,
     )
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # create the median line
 
     ax.hlines(
@@ -298,11 +298,11 @@ def make_single_box(
         linewidth=linewidth,
     )
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # create top/bottom of whiskers
     whisker_bottom, whisker_top = top_bottom_whisker_y_values(values=values)
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # plot vertial whisker lines
 
     # create vertical lines
@@ -321,7 +321,7 @@ def make_single_box(
         capstyle="round",
     )
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # plot the outliers
 
     # plot outliers
@@ -336,7 +336,7 @@ def make_single_box(
         edgecolors=None,
     )
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # plot the scatter of values
 
     x_values = np.random.normal(
@@ -392,13 +392,13 @@ def example(*, df: pd.DataFrame) -> mpl.figure.Figure:
         )
         xpos += xpos_inc
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # format tick labels
 
     ax.set_xticks(np.arange(1, xpos, xpos_inc))
     ax.set_xticklabels(list(country_metadata.keys()))
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # plot formatting / spines / background.
 
     ax.tick_params(axis="both", which="both", length=0)
@@ -412,7 +412,7 @@ def example(*, df: pd.DataFrame) -> mpl.figure.Figure:
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
-    # ----------------------------------------------------------------------------------------------
+    # ----------------------------------------------------------------------------------
     # titles and axis labels
     ax.set_title(
         "This is something about pumpkin competitions or something like that.",

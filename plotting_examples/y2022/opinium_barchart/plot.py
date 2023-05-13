@@ -39,8 +39,8 @@ def main() -> mpl.figure.Figure:
 
         fig, ax = plt.subplots(figsize=(15, 7))
 
-        # trying to setup as many variables as possible here - though there are still some magic
-        # values
+        # trying to setup as many variables as possible here - though there are still
+        # some magic values
 
         min(list(data.values()))
         max_val = max(list(data.values()))
@@ -139,7 +139,10 @@ def main() -> mpl.figure.Figure:
         _ = ax.text(
             x=title_x,
             y=title_y - 0.11,
-            s="Net Level of Trust in providing of information by party leaders\non Coronavirus",
+            s=(
+                "Net Level of Trust in providing of information by party leaders\non"
+                " Coronavirus"
+            ),
             transform=ax.transAxes,
             c="#717171",
         )

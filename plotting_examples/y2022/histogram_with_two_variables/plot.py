@@ -2,8 +2,9 @@
 """
 Histogram created from scratch using matplotlib.
 
-There are custom bar's created for each bin, instead of using ax.bar, I think it was originally
-based on something but i can't find the original / reference now so am just left with this.
+There are custom bar's created for each bin, instead of using ax.bar, I think it was
+originally based on something but i can't find the original / reference now so am just
+left with this.
 
 The result is pretty rubbish :)
 """
@@ -79,7 +80,7 @@ def main() -> mpl.figure.Figure:
     """Create plot."""
     plot_data, colour_map = gen_data()
 
-    plt.style.use("./rc.mplstyle")
+    plt.style.use("./plotting_examples/rc.mplstyle")
 
     with plt.rc_context(
         {

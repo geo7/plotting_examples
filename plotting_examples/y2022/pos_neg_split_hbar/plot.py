@@ -1,6 +1,7 @@
 # pylint: disable=duplicate-code
 """
-Create split horizontal bar chart, split by dichotomous variable, with bar classifications.
+Create split horizontal bar chart, split by dichotomous variable, with bar
+classifications.
 
 Can be a bit messy - not sure I'm much of a fan - but wanted to re-create anyway.
 """

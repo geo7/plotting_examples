@@ -4,7 +4,8 @@ Plot dichotomous variable.
 
 Simple dots with median lines - might be nice to add a kde to this as well.
 
-The y-axis is redundant here as there are only two options (`0.6` doesn't make any sense).
+The y-axis is redundant here as there are only two options (`0.6` doesn't make any
+sense).
 """
 
 from __future__ import annotations
@@ -39,8 +40,9 @@ def binary_outcome_plot(
     """
     Create plot of continuous var by binary outcome.
 
-    This is just pulled straight from a notebook so is pretty loose. Could improve the typing of
-    this function, as well as it's name, and the use of mpl objects within it.
+    This is just pulled straight from a notebook so is pretty loose. Could improve the
+    typing of this function, as well as it's name, and the use of mpl objects within
+    it.
     """
     # if ax is None:
     fig, ax = plt.subplots(figsize=(20, 3))
@@ -51,6 +53,10 @@ def binary_outcome_plot(
         1: metadata.color.DEEPER_GREEN,
     }
     for g, dfg in data.groupby([y]):
+        if len(g) == 1:
+            # Not sure when this isn't the case but this is just a quick fix to make it
+            # run.
+            g = g[0]
         ax.scatter(
             x=dfg[x_var],
             y=dfg[y],
