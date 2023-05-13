@@ -411,8 +411,8 @@ stages:
     cmd: poetry run python -m plotting_examples.y2022.opinium_barchart.plot
     deps:
     - path: plotting_examples/y2022/opinium_barchart/plot.py
-      md5: 4883b78972d9f16cf0e582f0e91ad32e
-      size: 6109
+      md5: b836963e9cfd3d20faaa58301052eedd
+      size: 5893
     outs:
     - path: images/y2022/opinium_barchart.png
       md5: 725de79e216dc63fc270846a3bfd9e59
