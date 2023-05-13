@@ -11,4 +11,3 @@ poetry run python -m generate_readme
 git diff --name-only HEAD -- dvc.lock && git add dvc.lock && git commit -m 'update dvc.lock'
 # automatically add changes to image files
 git diff --name-only --diff-filter=dM HEAD | egrep '.*images.*\.png$' | xargs -r git add && git commit -m 'updated generated image'
-

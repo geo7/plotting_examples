@@ -175,14 +175,10 @@ def main() -> mpl.figure.Figure:
             pathlib.Path(__file__).parent / "opinium.png",
             format="png",
         )
-        img_x = ax.bbox.xmax * 0.75
         img_y = ax.bbox.ymin
 
-        img_x *= 0.5
-        img_y -= 100
         ax.text(
-            # x=img_x * 0.85,
-            x=ax.bbox.xmax - 1000,
+            x=ax.bbox.xmax + 400,
             y=img_y + 20,
             s="* Sample size: 2001\n25-26th June\nOpinium.co.uk",
             transform=None,
@@ -190,13 +186,10 @@ def main() -> mpl.figure.Figure:
         )
         print(image.shape)
 
-        # _ = fig.figimage(image, img_x, img_y, origin="upper")
         fig.figimage(
             image,
-            # img_x,
-            ax.bbox.xmax - 700,
+            ax.bbox.xmax + 659,
             0,
-            # img_y * 0.5,
             origin="upper",
         )
         ax.axvline(0, linewidth=0.1, alpha=0.9, color="#212121")

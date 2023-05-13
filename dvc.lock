@@ -411,12 +411,12 @@ stages:
     cmd: poetry run python -m plotting_examples.y2022.opinium_barchart.plot
     deps:
     - path: plotting_examples/y2022/opinium_barchart/plot.py
-      md5: 1e277700084ec1a4912fe3d368a0bf1e
-      size: 6114
+      md5: 4883b78972d9f16cf0e582f0e91ad32e
+      size: 6109
     outs:
     - path: images/y2022/opinium_barchart.png
-      md5: 6acb5fb9f6c27dd42ea049e20eefbf26
-      size: 55181
+      md5: 725de79e216dc63fc270846a3bfd9e59
+      size: 65128
   y2022_uk_hexmap:
     cmd: poetry run python -m plotting_examples.y2022.uk_hexmap.plot
     deps:
