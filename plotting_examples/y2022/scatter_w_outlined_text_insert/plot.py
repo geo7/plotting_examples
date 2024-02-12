@@ -28,13 +28,11 @@ T = TypeVar("T")
 
 def get_plotting_data() -> pd.DataFrame:
     """Plotting dataframe."""
-    # df = dl_data()
     df = pd.read_parquet(pathlib.Path(__file__).parent / "data.parquet")
 
     data_list = []
-    for g, dfg in df.groupby(["year"]):
-        if len(g) == 1:
-            g = g[0]
+    for g_, dfg in df.groupby(["year"]):
+        g = g_[0]
         x = dfg["distributor"]
         df_a = x.value_counts().reset_index().assign(year=g)
 
@@ -54,7 +52,10 @@ def get_plotting_data() -> pd.DataFrame:
             df_c["colour"] = top + [other_colour for _ in range(len(df_c) - n_size)]
         else:
             df_c["colour"] = top
-        assert not df_c["colour"].isna().any()
+
+        if df_c["colour"].isna().any():
+            raise ValueError
+
         data_list.append(df_c)
 
     plotting_data = pd.concat(data_list)
@@ -83,7 +84,6 @@ def main() -> mpl.figure.Figure:
         fig, ax = plt.subplots(figsize=(40, 15))
 
         other_colour = "#d0d0d0"
-        # BACKGROUND_COLOUR = "#f2f2f2"
 
         for _, dfg in plotting_data.groupby("distributor"):
             # plot text of distributor.
@@ -126,15 +126,10 @@ def main() -> mpl.figure.Figure:
         ax.set_title("Top film distributor, 1957 - 2021", fontsize=35, y=1.05)
 
         for tick in ax.xaxis.get_major_ticks():
-            tick.label.set_fontsize(15)
+            tick.label1.set_fontsize(15)
 
         for tick in ax.yaxis.get_major_ticks():
-            tick.label.set_fontsize(15)
-
-        # ax.set_facecolor(
-        #     BACKGROUND_COLOUR,
-        # )
-        # fig.patch.set_facecolor(BACKGROUND_COLOUR)
+            tick.label1.set_fontsize(15)
 
         ax.tick_params(axis="both", which="both", length=0)
 
@@ -144,7 +139,6 @@ def main() -> mpl.figure.Figure:
         ax.spines["bottom"].set_visible(False)
 
         ax.grid(alpha=0.15, axis="y", zorder=0)
-        # ax.grid(alpha=0.1, axis="x", zorder=0)
 
         years = YearLocator(5)  # every year
         years_fmt = DateFormatter("%Y")
@@ -160,4 +154,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

@@ -58,13 +58,8 @@ COLOR_SUBTITLE_TEXT = "#808080"
 LAYOUT = [
     ["top_left_corner", "title", "title", "title", "top_right_corner"],
     ["main", "main", "main", "main", "side"],
-    # ["main", "main", "main", "main", "side"],
-    # ["main", "main", "main", "main", "side"],
     ["main", "main", "main", "main", "side"],
     ["bottom", "bottom", "bottom", "bottom", "bottom_right_corner"],
-    # Could add a footer and _maybe_ the results of some association tests like chi
-    # square or whatever  - didn't bother for this though.
-    # ["foot_note", "foot_note", "foot_note", "foot_note", "foot_note"],
 ]
 
 # Colors which are used when the bar colour is dark/light respectively - so that the
@@ -81,7 +76,7 @@ def get_sample_data() -> (
     ]
 ):
     """
-    Generate sample data
+    Generate sample data.
 
     Data structured similar to what you'd find in an SPSS sav file - where there's the
     df (responses), cnl (metadata about the columns) and vvl (metadata about the values
@@ -172,6 +167,7 @@ def get_sample_data() -> (
 
 def patch_color_light(patch: mpl.patches.Rectangle) -> bool:
     """Determine if mpl patch is light or dark."""
+    # TODO: Put this into a global helper module.
     bar_col = mpl.colors.to_hex(patch.get_facecolor())
     hex_col = bar_col[1:]
     red, green, blue = (
@@ -181,12 +177,14 @@ def patch_color_light(patch: mpl.patches.Rectangle) -> bool:
     )
     # https://stackoverflow.com/questions/3942878/how-to-decide-
     # font-color-in-white-or-black-depending-on-background-color
-    if (red * 0.299 + green * 0.587 + blue * 0.114) > 100:
+    threshold = 100
+    if (red * 0.299 + green * 0.587 + blue * 0.114) > threshold:
         return True
     return False
 
 
 class PlotSections:
+
     """
     Holds plotting sections.
 
@@ -239,22 +237,19 @@ class PlotSections:
 
         data_matrix = df_plot.to_numpy().flatten()
         data_matrix_counts = df_plot_counts.to_numpy().flatten()
+        min_bar_size = 3
         for i, patch in enumerate(ax.patches):
             width = patch.get_width()
             height = patch.get_height()
             x, y = patch.get_xy()
-            data_i = data_matrix[i] if data_matrix[i] >= 3 else "-"
-            data_count_i = data_matrix_counts[i] if data_matrix[i] >= 3 else None
+            data_i = data_matrix[i] if data_matrix[i] >= min_bar_size else "-"
+            data_count_i = (
+                data_matrix_counts[i] if data_matrix[i] >= min_bar_size else None
+            )
 
-            if data_count_i is not None:
-                ann = f"{data_i} ({data_count_i})"
-            else:
-                ann = "-"
+            ann = f"{data_i} ({data_count_i})" if data_count_i is not None else "-"
 
-            if patch_color_light(patch):
-                text_col = COLOR_FONT_LIGHT
-            else:
-                text_col = COLOR_FONT_DARK
+            text_col = COLOR_FONT_LIGHT if patch_color_light(patch) else COLOR_FONT_DARK
 
             ax.annotate(
                 f"{ann}",
@@ -300,10 +295,7 @@ class PlotSections:
             width = patch.get_width()
             height = patch.get_height()
             x, y = patch.get_xy()
-            if patch_color_light(patch):
-                txt_color = "#000000"
-            else:
-                txt_color = "#ffffff"
+            txt_color = "#000000" if patch_color_light(patch) else "#ffffff"
             ax.text(
                 s=f"{count_pct}%\n({count})",
                 x=x + width * 0.5,
@@ -330,7 +322,6 @@ class PlotSections:
         cnl: dict[str, str],
     ) -> None:
         """Bar plot of the dependent variable."""
-
         counts = df[VAR_DEPENDENT].value_counts().sort_index()
         ax.bar(
             x=list(vvl[VAR_DEPENDENT].values()),
@@ -362,7 +353,6 @@ class PlotSections:
             )
 
         ax.spines.top.set_visible(False)
-        # ax.spines.bottom.set_visible(False)
         ax.spines.right.set_visible(False)
         ax.spines.left.set_visible(False)
 
@@ -370,13 +360,11 @@ class PlotSections:
     def title(ax: plt.Axes, cnl: dict[str, str]) -> None:
         """Overall title."""
         ax.text(
-            # s=TEXT_TITLE,
             s="Labradors",
             x=0.1,
             y=0.5,
             fontsize=FONTSIZE_TITLE,
             horizontalalignment="left",
-            # verticalalignment="center",
             verticalalignment="bottom",
         )
 
@@ -453,7 +441,6 @@ class PlotSections:
         )
         ax.set_xticks([])
         ax.set_yticks([])
-        # ax.axis("off")
 
 
 def main() -> mpl.figure.Figure:
@@ -506,4 +493,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

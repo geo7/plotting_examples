@@ -38,7 +38,7 @@ def main() -> mpl.figure.Figure:
             data=df,
             x="species",
             y="flipper_length_mm",
-            scale="count",
+            density_norm="count",
             inner="box",
             linewidth=4,
             ax=axis,
@@ -49,12 +49,12 @@ def main() -> mpl.figure.Figure:
         # What size to increase/decreate the central boxplot section to.
         new_width = 30
 
-        # adjust the size of the boxplot - which of these list elements to edit is just
-        # guess and check.
+        # adjust the size of the boxplot, which of these list elements to edit
+        # is just guess and check.
         for vio_line in vio.lines[1::2]:
             vio_line.set_linewidth(new_width)
 
-        #  adjust the median point markers within the boxplot.
+        # Adjust the median point markers within the boxplot.
         for child in vio.get_children()[1:6:2]:
             child.set_linewidth(5)
 
@@ -66,4 +66,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

@@ -11,20 +11,21 @@ cleanup.
 
 # Plots
 
-* [`bar_plot_w_custom_cmap`](https://github.com/geo7/plotting_examples#bar_plot_w_custom_cmap)
-* [`binary_outcome_variable`](https://github.com/geo7/plotting_examples#binary_outcome_variable)
-* [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples#box_plot_w_scatter_distributions)
-* [`line_plot_fill_between`](https://github.com/geo7/plotting_examples#line_plot_fill_between)
-* [`meaningless_points`](https://github.com/geo7/plotting_examples#meaningless_points)
-* [`opinium_barchart`](https://github.com/geo7/plotting_examples#opinium_barchart)
-* [`pandas_stacked_bars_with_values`](https://github.com/geo7/plotting_examples#pandas_stacked_bars_with_values)
-* [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples#pos_neg_split_hbar)
-* [`scatter_distributions`](https://github.com/geo7/plotting_examples#scatter_distributions)
-* [`scatter_matrix_w_kde_on_diag`](https://github.com/geo7/plotting_examples#scatter_matrix_w_kde_on_diag)
-* [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples#scatter_w_outlined_text_insert)
-* [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples#split_x_axis_custom_legend)
-* [`stacked_bar_with_single_bars_layout`](https://github.com/geo7/plotting_examples#stacked_bar_with_single_bars_layout)
-* [`uk_hexmap`](https://github.com/geo7/plotting_examples#uk_hexmap)
+* [`bar_plot_w_custom_cmap`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#bar_plot_w_custom_cmap)
+* [`binary_outcome_variable`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#binary_outcome_variable)
+* [`box_plot_w_scatter_distributions`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#box_plot_w_scatter_distributions)
+* [`cat_weight`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#cat_weight)
+* [`line_plot_fill_between`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#line_plot_fill_between)
+* [`meaningless_points`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#meaningless_points)
+* [`opinium_barchart`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#opinium_barchart)
+* [`pandas_stacked_bars_with_values`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#pandas_stacked_bars_with_values)
+* [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#pos_neg_split_hbar)
+* [`scatter_distributions`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#scatter_distributions)
+* [`scatter_matrix_w_kde_on_diag`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#scatter_matrix_w_kde_on_diag)
+* [`scatter_w_outlined_text_insert`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#scatter_w_outlined_text_insert)
+* [`split_x_axis_custom_legend`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#split_x_axis_custom_legend)
+* [`stacked_bar_with_single_bars_layout`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#stacked_bar_with_single_bars_layout)
+* [`uk_hexmap`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#uk_hexmap)
 
 
 
@@ -65,6 +66,19 @@ from scratch using hlines etc, for no particular reason.
 Data was from tidy tuesday.
 
 ![](images/y2022/box_plot_w_scatter_distributions.png)
+
+## [`cat_weight`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2024/cat_weight/plot.py)
+
+Timeseries of the cats diet.
+
+Cat was getting a little chunky towards the end of 2023 so had a resolution made for
+them to lose a bit of weight. Data collection is just a daily weigh, the average of
+this is taken (as there are sometimes multiple entries in a day) and then plotted along
+with a ten day rolling average. Most days were covered, where there are missing days
+they're imputed using the average of the days either side, eg `(a, nan, b) -> (a,
+(a+b)/2, b)` though this is just a plot.
+
+![](images/y2024/cat_weight.png)
 
 ## [`line_plot_fill_between`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/line_plot_fill_between/plot.py)
 
@@ -113,8 +127,9 @@ Example of:
 
 ## [`pos_neg_split_hbar`](https://github.com/geo7/plotting_examples/blob/main/plotting_examples/y2022/pos_neg_split_hbar/plot.py)
 
-Create split horizontal bar chart, split by dichotomous variable, with bar
-classifications.
+Create split horizontal bar chart.
+
+Split by dichotomous variable, with bar classifications.
 
 Can be a bit messy - not sure I'm much of a fan - but wanted to re-create anyway.
 

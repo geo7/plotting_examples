@@ -24,13 +24,14 @@ import seaborn as sns
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937(1977))
+
 
 def main() -> mpl.figure.Figure:
     """Main."""
-    np.random.seed(1977)
     numvars, numdata = 4, 50
 
-    data = 10 * np.random.chisquare(df=4, size=(numvars, numdata))
+    data = 10 * np_rnd.chisquare(df=4, size=(numvars, numdata))
 
     names = ["mpg", "disp", "drat", "wt"]
 
@@ -109,4 +110,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

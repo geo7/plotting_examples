@@ -31,22 +31,32 @@ cloc:
 # WORKING ON PROJECT #
 ######################
 
-pre_commit: ## run pre-commit manually
-	pre-commit run --all-files
+pre-commit-run:
+	poetry run pre-commit run --all-files
+
 
 readme: ## Generate README file.
 	poetry run python generate_readme.py
+
+repro: ## run dvc repro
+	poetry run dvc repro -f dvc.yaml
+
 
 ########
 # LINT #
 ########
 
-lint:
-	poetry run ruff .
-	poetry run black --check .
+lint: mypy ## run linting - mypy,ruff
+	poetry run ruff check .
+	poetry run ruff format . --check
+	@$(MAKE) --no-print-directory clean
 
-format:
-	poetry run black .
+# Using this as format & lint really...
+format: pre-commit-run ## run formatters - pre-commit,ruff
+	poetry run ruff format .
+	poetry run ruff check . --fix --unsafe-fixes
+	@$(MAKE) --no-print-directory clean
+
 
 ##########
 # POETRY #

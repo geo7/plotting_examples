@@ -281,169 +281,228 @@ stages:
     cmd: poetry run python -m plotting_examples.y2022.box_plot_w_scatter_distributions.plot
     deps:
     - path: plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py
-      md5: 90480c930e7d06c69c498382507632bb
-      size: 11853
+      hash: md5
+      md5: 04a40f8169611b4cbc07f2b6ee627c99
+      size: 11507
     outs:
     - path: images/y2022/box_plot_w_scatter_distributions.png
-      md5: e66851caf4df5b322f13d9337b0b404d
-      size: 466379
+      hash: md5
+      md5: 13b8077a09263fe261358e7818f61460
+      size: 467303
   y2022_sns_violin_plot_custom:
     cmd: poetry run python -m plotting_examples.y2022.sns_violin_plot_custom.plot
     deps:
     - path: plotting_examples/y2022/sns_violin_plot_custom/plot.py
-      md5: c7849f02c85ad2656a99fb12b34a6a79
-      size: 1972
+      hash: md5
+      md5: af8633606e970f64ae4a22fb787bcccc
+      size: 1974
     outs:
     - path: images/y2022/sns_violin_plot_custom.png
-      md5: bceaba77895c8cced483cb0533df0cf1
-      size: 68240
+      md5: 05e5eca57ef23097e878e8c603a3f22e
+      size: 67429
   y2022_bar_plot_w_custom_cmap:
     cmd: poetry run python -m plotting_examples.y2022.bar_plot_w_custom_cmap.plot
     deps:
     - path: plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py
-      md5: ab02a2bf2c21cd60ff6dc5ea52ba5f8b
-      size: 5978
+      hash: md5
+      md5: 1081dd8f3982ca499c0bdb588f1673cf
+      size: 6000
     outs:
     - path: images/y2022/bar_plot_w_custom_cmap.png
-      md5: 0156775e63b6ac8569d7f2a12363ac0f
-      size: 174879
+      hash: md5
+      md5: 6be8b259164e4992a3e62f5255199e02
+      size: 174412
   y2022_histogram_with_two_variables:
     cmd: poetry run python -m plotting_examples.y2022.histogram_with_two_variables.plot
     deps:
     - path: plotting_examples/y2022/histogram_with_two_variables/plot.py
-      md5: 8d8b8a7e8522908812e4b34536adb103
-      size: 5795
+      hash: md5
+      md5: e8aaf8d7f2e58f0f08d5905f4d6545f5
+      size: 5818
     outs:
     - path: images/y2022/histogram_with_two_variables.png
-      md5: 7e7ddf0cd1cb33d663626d40e0e80e83
+      md5: 2e0d94432170ec007918cead8ddb08cb
       size: 58637
   y2022_binary_outcome_variable:
     cmd: poetry run python -m plotting_examples.y2022.binary_outcome_variable.plot
     deps:
     - path: plotting_examples/y2022/binary_outcome_variable/plot.py
-      md5: 7cf3c72a55d8c5a2bbea034907c445a8
-      size: 2816
+      hash: md5
+      md5: 82bb25183530cab03c5ebbd65f3793fb
+      size: 2759
     outs:
     - path: images/y2022/binary_outcome_variable.png
-      md5: 3f9ec971766f44f3db4bfbd9d6d56634
-      size: 36645
+      hash: md5
+      md5: 55b0cfcab7573baa0f5363f7f516e075
+      size: 36069
   y2022_pos_neg_split_hbar:
     cmd: poetry run python -m plotting_examples.y2022.pos_neg_split_hbar.plot
     deps:
     - path: plotting_examples/y2022/pos_neg_split_hbar/plot.py
-      md5: 751ba88cceb240db4e694f60414d08e1
-      size: 5771
+      hash: md5
+      md5: 28d66bc9157f62574f831bdc444b0013
+      size: 5683
     outs:
     - path: images/y2022/pos_neg_split_hbar.png
-      md5: 1ccac5df8265c8955b8a2e0000dd9b53
+      md5: 09185fc58c132ebac7555ecf30463f81
       size: 73712
   y2022_scatter_matrix_w_kde_on_diag:
     cmd: poetry run python -m plotting_examples.y2022.scatter_matrix_w_kde_on_diag.plot
     deps:
     - path: plotting_examples/y2022/scatter_matrix_w_kde_on_diag/plot.py
-      md5: 516d43ad3a7f19f85495dc53d61e2466
-      size: 3337
+      hash: md5
+      md5: 2ba181f8e6c7917ee108db0efba5563b
+      size: 3362
     outs:
     - path: images/y2022/scatter_matrix_w_kde_on_diag.png
-      md5: ed5bf91d7a7751ebc3241bdd6bd11600
-      size: 317291
+      hash: md5
+      md5: 9cbe0ed36d6b99d3832fe5d60b710cdd
+      size: 325647
   y2022_line_plot_fill_between:
     cmd: poetry run python -m plotting_examples.y2022.line_plot_fill_between.plot
     deps:
     - path: plotting_examples/y2022/line_plot_fill_between/plot.py
-      md5: 709bccf530d709d75668964ccbd91061
-      size: 5037
+      hash: md5
+      md5: d7cff1ee9454970d2867d773e9b02fa9
+      size: 5006
     outs:
     - path: images/y2022/line_plot_fill_between.png
-      md5: fee6cac21dc363bfcf170fcc87afa0a5
+      md5: 9dcd62a428039331ee813626f2c53089
       size: 231583
   y2022_pandas_stacked_bars_with_values:
     cmd: poetry run python -m plotting_examples.y2022.pandas_stacked_bars_with_values.plot
     deps:
     - path: plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py
-      md5: 9c18de5568d8fbb0ea26c5d8d00be7f9
-      size: 4814
+      hash: md5
+      md5: f2ae5b1cdde5be98f1adf604627faea7
+      size: 4344
     outs:
     - path: images/y2022/pandas_stacked_bars_with_values.png
-      md5: aa92c7ae5006225451548a0d48c514da
+      md5: 199cbc2e9ac00928ff31306bb0f4ab5e
       size: 61398
   y2022_split_x_axis_custom_legend:
     cmd: poetry run python -m plotting_examples.y2022.split_x_axis_custom_legend.plot
     deps:
     - path: plotting_examples/y2022/split_x_axis_custom_legend/plot.py
-      md5: 6e2e340bc9003cfeaa85fdab1e29df3c
-      size: 6774
+      hash: md5
+      md5: d1b5bf731ad60df78560032c494e850d
+      size: 6613
     outs:
     - path: images/y2022/split_x_axis_custom_legend.png
-      md5: c6b564f7521b4de554577fa22e613b97
-      size: 1695518
+      hash: md5
+      md5: ad997f3edd4f6e0e3c68f3f6d51f6051
+      size: 1691509
   y2022_scatter_distributions:
     cmd: poetry run python -m plotting_examples.y2022.scatter_distributions.plot
     deps:
     - path: plotting_examples/y2022/scatter_distributions/plot.py
-      md5: 46994b7cf22252bf1abcc40410946d0a
-      size: 6462
+      hash: md5
+      md5: 50e55ada6e2189e412b897eaaba98a91
+      size: 7005
     outs:
     - path: images/y2022/scatter_distributions.png
-      md5: 447e5e3b7758011f026d0c9ff87b2e03
-      size: 530421
+      hash: md5
+      md5: 4d3c39eb4908c6500df3778005e3d935
+      size: 604570
   y2022_default_plot:
     cmd: poetry run python -m plotting_examples.y2022.default_plot.plot
     deps:
     - path: plotting_examples/y2022/default_plot/plot.py
-      md5: e702d212a5a61e03ab1aca02222f94af
-      size: 1184
+      hash: md5
+      md5: e73c670e2e968dcf8fd512afdd02550f
+      size: 1181
     outs:
     - path: images/y2022/default_plot.png
-      md5: a82681f4020ad1a10ac2ca9913ccdbdf
+      md5: 1d81f2b1567c55dec832acd4ac5dca60
       size: 24778
   y2022_scatter_w_outlined_text_insert:
     cmd: poetry run python -m plotting_examples.y2022.scatter_w_outlined_text_insert.plot
     deps:
     - path: plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py
-      md5: 65872f26d032d17069366aae05ae5103
-      size: 5039
+      hash: md5
+      md5: 43b616b2aac98ea2c871e75232041c27
+      size: 4800
     outs:
     - path: images/y2022/scatter_w_outlined_text_insert.png
-      md5: eb0f7d3626535812798f6a31205d83e3
+      md5: 6de49552e5ea5e034d052d98943f89b9
       size: 481441
   y2022_opinium_barchart:
     cmd: poetry run python -m plotting_examples.y2022.opinium_barchart.plot
     deps:
     - path: plotting_examples/y2022/opinium_barchart/plot.py
-      md5: b836963e9cfd3d20faaa58301052eedd
-      size: 5893
+      hash: md5
+      md5: 5d789b62e376e73b2e674eff4654f5a3
+      size: 5706
     outs:
     - path: images/y2022/opinium_barchart.png
-      md5: 725de79e216dc63fc270846a3bfd9e59
+      md5: 0f840e7d0a449d057ff8a5d5c27eda48
       size: 65128
   y2022_uk_hexmap:
     cmd: poetry run python -m plotting_examples.y2022.uk_hexmap.plot
     deps:
     - path: plotting_examples/y2022/uk_hexmap/plot.py
-      md5: a0d19fcfeeaf82439f367b22b1b66991
-      size: 3870
+      hash: md5
+      md5: 08820c58d34ce7bb8eb10887e274719a
+      size: 3924
     outs:
     - path: images/y2022/uk_hexmap.png
-      md5: 48219d468c80845a5ee3414658a01da5
-      size: 536851
+      hash: md5
+      md5: 47ce41c54a1c4b98721616bf1b3dd0f8
+      size: 536009
   y2022_meaningless_points:
     cmd: poetry run python -m plotting_examples.y2022.meaningless_points.plot
     deps:
     - path: plotting_examples/y2022/meaningless_points/plot.py
-      md5: c479ec5637d0d21aa2661591629327c1
-      size: 2755
+      hash: md5
+      md5: b924868b0e4cb8df3e2d43db2df6447b
+      size: 2629
     outs:
     - path: images/y2022/meaningless_points.png
-      md5: 88b542beac5432f466f7daf486caea4e
+      md5: 0abf95fc710641a8564d5df871600131
       size: 273061
   y2022_stacked_bar_with_single_bars_layout:
     cmd: poetry run python -m plotting_examples.y2022.stacked_bar_with_single_bars_layout.plot
     deps:
     - path: plotting_examples/y2022/stacked_bar_with_single_bars_layout/plot.py
-      md5: c1ae00daaf8e0ff2d58075c3c68c9aa3
-      size: 15223
+      hash: md5
+      md5: bc6593ec647abd0a04d1ce7c2e40b67d
+      size: 14757
     outs:
     - path: images/y2022/stacked_bar_with_single_bars_layout.png
-      md5: 2afe5cd03faf924e7581232533100588
+      md5: a0f95c280b1fe5edf4f2946654be8ed6
       size: 229895
+  y2024_stacked_bar_with_single_bars_layout:
+    cmd: poetry run python -m plotting_examples.y2024.stacked_bar_with_single_bars_layout.plot
+    deps:
+    - path: plotting_examples/y2024/stacked_bar_with_single_bars_layout/plot.py
+      hash: md5
+      md5: 42d5d36996dcebf858d3dc20de2170e7
+      size: 15223
+    outs:
+    - path: images/y2024/stacked_bar_with_single_bars_layout.png
+      md5: a0f95c280b1fe5edf4f2946654be8ed6
+      size: 229895
+  y2024_mish_weight:
+    cmd: poetry run python -m plotting_examples.y2024.mish_weight.plot
+    deps:
+    - path: plotting_examples/y2024/mish_weight/plot.py
+      hash: md5
+      md5: c23fddaa7cda28671d084731a63dab0e
+      size: 15199
+    outs:
+    - path: images/y2024/mish_weight.png
+      hash: md5
+      md5: a0f95c280b1fe5edf4f2946654be8ed6
+      size: 229895
+  y2024_cat_weight:
+    cmd: poetry run python -m plotting_examples.y2024.cat_weight.plot
+    deps:
+    - path: plotting_examples/y2024/cat_weight/plot.py
+      hash: md5
+      md5: f0a9b877d7ca039f7abe97ae22fc199f
+      size: 10948
+    outs:
+    - path: images/y2024/cat_weight.png
+      hash: md5
+      md5: 349531013b8ce68427565be568504f39
+      size: 795106

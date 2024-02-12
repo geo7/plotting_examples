@@ -135,3 +135,11 @@ stages:
     - images/y2022/uk_hexmap.png:
         cache: false
     wdir: .
+  y2024_cat_weight:
+    cmd: poetry run python -m plotting_examples.y2024.cat_weight.plot
+    deps:
+    - plotting_examples/y2024/cat_weight/plot.py
+    outs:
+    - images/y2024/cat_weight.png:
+        cache: false
+    wdir: .

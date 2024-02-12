@@ -154,7 +154,6 @@ def main() -> mpl.figure.Figure:
             0,
             df.loc[past_break, "y_cumsum"],
             alpha=0.5,
-            # color="green",
             color=metadata.color.GREY,
             where=df.loc[past_break, "y_cumsum"] <= 0,
         )
@@ -177,4 +176,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

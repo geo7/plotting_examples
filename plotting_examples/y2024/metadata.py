@@ -28,6 +28,10 @@ class Colors:
     BROWNY_RED = "#554149"
     PURPLEY = "#8F6E9B"
     TAN = "#DDD7C6"
+    BLACK = "#000000"
 
 
 color = Colors()
+
+dir_year = "y2024"
+year = 2024

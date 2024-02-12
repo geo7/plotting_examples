@@ -20,13 +20,14 @@ import pandas as pd
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937(1))
+
 
 def make_data() -> pd.DataFrame:
     """Generate some sample data for testing with."""
-    np.random.seed(1)
-    N = 1_00
-    y = np.random.choice([0, 1], N)
-    x = np.random.normal(0, 1, N) + np.random.normal(2, 1, N) * y
+    n = 1_00
+    y = np_rnd.choice([0, 1], n)
+    x = np_rnd.normal(0, 1, n) + np_rnd.normal(2, 1, n) * y
     return pd.DataFrame(np.array([x, y]).T, columns=["x", "y"])
 
 
@@ -34,7 +35,6 @@ def binary_outcome_plot(
     data: pd.DataFrame,
     x_var: str = "x",
     y: str = "y",
-    # ax: plt.Axes | None = None,
     fig: mpl.figure.Figure | None = None,
 ) -> mpl.figure.Figure:
     """
@@ -49,14 +49,13 @@ def binary_outcome_plot(
 
     colors = {
         0: metadata.color.PINK_COLOUR,
-        # 1: "green",
         1: metadata.color.DEEPER_GREEN,
     }
-    for g, dfg in data.groupby([y]):
-        if len(g) == 1:
-            # Not sure when this isn't the case but this is just a quick fix to make it
-            # run.
-            g = g[0]
+    for g_, dfg in data.groupby([y]):
+        if len(g_) != 1:
+            msg = "Expect these to all be single?"
+            raise ValueError(msg, g_)
+        g = g_[0]
         ax.scatter(
             x=dfg[x_var],
             y=dfg[y],
@@ -96,7 +95,6 @@ def binary_outcome_plot(
 
 def main() -> mpl.figure.Figure:
     """Plot."""
-
     with plt.rc_context(
         {
             "xtick.major.pad": 10,
@@ -111,4 +109,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

@@ -1,6 +1,5 @@
-"""
-Create an entry in the dvc.yaml file for the particular plot.
-"""
+"""Create an entry in the dvc.yaml file for the particular plot."""
+
 from __future__ import annotations
 
 import pathlib
@@ -17,15 +16,14 @@ def add_to_dvc(*, path: pathlib.Path) -> None:
     dvc = yaml.safe_load(pathlib.Path("dvc.yaml").read_text(encoding="utf8"))
 
     stage_name = f"{year}_{name}"
-
-    if stage_name not in dvc["stages"].keys():
+    if stage_name not in dvc["stages"]:
         # Project not yet added to dvc.yaml
         dvc["stages"][stage_name] = {
             "wdir": ".",
-            "cmd": f"python -m plotting_examples.{year}.{name}.plot",
+            "cmd": f"poetry run python -m plotting_examples.{year}.{name}.plot",
             "deps": [f"plotting_examples/{year}/{name}/plot.py"],
             "outs": [{f"images/{year}/{name}.png": {"cache": False}}],
         }
 
-        with open("dvc.yaml", "w", encoding="utf8") as file:
-            yaml.dump(dvc, file)
+        with pathlib.Path("dvc.yaml").open("w") as file:
+            file.write(yaml.dump(dvc))
