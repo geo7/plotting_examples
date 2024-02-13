@@ -1,7 +1,8 @@
 # pylint: disable=duplicate-code
 """
-Create split horizontal bar chart, split by dichotomous variable, with bar
-classifications.
+Create split horizontal bar chart.
+
+Split by dichotomous variable, with bar classifications.
 
 Can be a bit messy - not sure I'm much of a fan - but wanted to re-create anyway.
 """
@@ -49,9 +50,6 @@ def sample_data() -> tuple[pd.DataFrame, dict[int, str], dict[str, str]]:
     index_to_meaning_map: dict[int, str] = df["meaning"].to_dict()
     # high/med/low represent some pretend classifications for this example.
     colour_map = {
-        # "high": "#72ab7b",
-        # "med": "#f2bc82",
-        # "low": "#de425b",
         "high": metadata.color.PINK_COLOUR,
         "med": metadata.color.TAN,
         "low": metadata.color.LIGHT_GREEN,
@@ -139,7 +137,7 @@ def main() -> mpl.figure.Figure:
         loc = plt_ticker.MultipleLocator(base=1)
         ax.yaxis.set_major_locator(loc)
 
-        #  Functions for reformatting plot tick values
+        # Functions for reformatting plot tick values
         def x_fmt(x: float, _y: int) -> str:
             fmt = f"{int(x)} %"
             return fmt.replace("-", "")
@@ -184,4 +182,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

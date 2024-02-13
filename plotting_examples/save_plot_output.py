@@ -1,25 +1,23 @@
-"""
-Util for saving output from plots.
-"""
+"""Util for saving output from plots."""
 
 from __future__ import annotations
 
 from pathlib import Path
-
-import matplotlib
+from typing import TYPE_CHECKING
 
 from plotting_examples.extract_year_name import extract_year_name_from_plot_py
+
+if TYPE_CHECKING:
+    import matplotlib as mpl
 
 
 def save_plot(
     *,
-    fig: matplotlib.figure.Figure,
+    fig: mpl.figure.Figure,
     file: str,
     dpi: int = 150,
 ) -> None:
-    """
-    Util for saving plot to images dir.
-    """
+    """Util for saving plot to images dir."""
     year, name = extract_year_name_from_plot_py(file=file)
 
     year_dir = Path("./images") / year

@@ -22,6 +22,8 @@ import pandas as pd
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937())
+
 T = TypeVar("T")
 
 WEEK = "week42"
@@ -38,7 +40,7 @@ LABEL_FONTSIZE = 12
 
 
 def clean_comma(df: pd.DataFrame, *, column: str) -> pd.DataFrame:
-    """Replace commas in series with empty strings"""
+    """Replace commas in series with empty strings."""
     df = df.copy()
     row_mask = df[column].astype(str).str.contains(",")
     df.loc[row_mask, column] = (
@@ -55,8 +57,7 @@ def drop_rows_by_match_on_column(
 ) -> pd.DataFrame:
     """Drop rows based on regex on a particular column."""
     df = df.copy()
-    df = df.loc[~df[column].astype(str).str.contains(regexp, regex=True)]
-    return df
+    return df.loc[~df[column].astype(str).str.contains(regexp, regex=True)]
 
 
 def top_n_groups(
@@ -79,7 +80,7 @@ def clean(
 ) -> pd.DataFrame:
     """Initial cleaning for all columns."""
     df = df.copy()
-    dt = (
+    return (
         df.pipe(
             drop_rows_by_match_on_column,
             column="country",
@@ -92,12 +93,12 @@ def clean(
         .assign(ott=lambda x: x["ott"].astype(float))
         .assign(pct_chart=lambda x: x["pct_chart"].astype(float))
     )
-    return dt
 
 
 @attr.frozen(kw_only=True)
 class PlotData:
     # pylint: disable=too-few-public-methods
+
     """Data for use in both box and scatter plotting."""
 
     box: pd.DataFrame
@@ -131,21 +132,6 @@ def plot_data_for_weight_by_country(df: pd.DataFrame) -> pd.DataFrame:
     return country_data
 
 
-# country_metadata = {
-#     "Austria": {},
-#     "Belgium": {},
-#     "Canada": {},
-#     "France": {},
-#     "Germany": {},
-#     "Italy": {},
-#     "Japan": {},
-#     "United Kingdom": {},
-#     "United States": {},
-#     "Other": {},
-#     "All Countries": {},
-# }
-
-
 # --------------------------------------------------------------------------------------
 
 # PLOTTING METHODS
@@ -172,7 +158,7 @@ def boxp_hline(
     x_center: float,
     y_value: float,
     box_width: float,
-    linewidth: int | float,
+    linewidth: float,
     box_colour: str,
 ) -> None:
     """Plot top/bottom of box."""
@@ -193,7 +179,7 @@ def boxp_vline(
     ymin: float,
     ymax: float,
     color: str,
-    linewidth: int | float,
+    linewidth: float,
 ) -> None:
     """Plot sides of box."""
     ax.vlines(
@@ -239,7 +225,7 @@ def make_single_box(
     values: list[float],
     x_center: float,
     scatter_color: str,
-    linewidth: float | int = 5,
+    linewidth: float = 5,
     box_width: float = 0.14,
     box_colour: str = "#000000",
     whisker_color: str = "#000000",
@@ -339,7 +325,7 @@ def make_single_box(
     # ----------------------------------------------------------------------------------
     # plot the scatter of values
 
-    x_values = np.random.normal(
+    x_values = np_rnd.normal(
         loc=x_center + 0.2,
         scale=0.03,
         size=len(values),
@@ -378,10 +364,7 @@ def example(*, df: pd.DataFrame) -> mpl.figure.Figure:
 
     for country in country_metadata:
         data = country_data[country]
-        if country in ["Other", "All Countries"]:
-            color = "#919191"
-        else:
-            color = PINK_COLOUR
+        color = "#919191" if country in ["Other", "All Countries"] else PINK_COLOUR
         make_single_box(
             ax=ax,
             values=data.scatter,
@@ -421,7 +404,6 @@ def example(*, df: pd.DataFrame) -> mpl.figure.Figure:
     )
     fig.suptitle(
         "Data Visualization of Competitive Pumpkin Sport 2013-2021",
-        # y=1.05 * 0.8,
         fontsize=20,
     )
     ax.set_ylabel("Weight lbs", fontsize=LABEL_FONTSIZE)
@@ -440,12 +422,10 @@ def main() -> mpl.figure.Figure:
             "font.family": "monospace",
         },
     ):
-        fig = example(df=df)
-
-    return fig
+        return example(df=df)
 
 
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

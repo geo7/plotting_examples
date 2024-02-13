@@ -41,41 +41,28 @@ def sample_data() -> tuple[pd.DataFrame, dict[int, dict[str, str]]]:
         4: "Finally",
     }
     index_colours = {
-        # 0: "red",
-        # 1: "grey",
-        # 2: "pink",
-        # 3: "blue",
-        # 4: "green",
         0: metadata.color.TAN,
         1: metadata.color.DEEPER_GREEN,
         2: metadata.color.PINK_COLOUR,
         3: metadata.color.BLUE,
         4: metadata.color.PURPLEY,
     }
-    # plot_metadata = {
-    #     x: {
-    #         #
-    #         "colour": index_colours[x],
-    #         "label": index_labels[x],
-    #     }
-    #     for x in index_labels
-    # }
 
     plot_metadata = {}
-    for x, _ in index_labels.items():
+    for x in index_labels:
         plot_metadata[x] = {
             "colour": index_colours[x],
             "label": index_labels[x],
         }
 
     # Plot metadata has this form:
-    # {
-    #     0: {"colour": "red", "label": "Something"},
-    #     1: {"colour": "grey", "label": "Another"},
-    #     2: {"colour": "pink", "label": "This Thing"},
-    #     3: {"colour": "blue", "label": "Thai Food"},
-    #     4: {"colour": "green", "label": "Finally"},
-    # }
+    # >>> {
+    # >>>     0: {"colour": "red", "label": "Something"},
+    # >>>     1: {"colour": "grey", "label": "Another"},
+    # >>>     2: {"colour": "pink", "label": "This Thing"},
+    # >>>     3: {"colour": "blue", "label": "Thai Food"},
+    # >>>     4: {"colour": "green", "label": "Finally"},
+    # >>> }
 
     return df_plot, plot_metadata
 
@@ -107,8 +94,6 @@ def main() -> mpl.figure.Figure:
         df_plot.T.plot.barh(
             stacked=True,
             ax=ax,
-            # color=[plot_metadata[x]["colour"] for x in plot_metadata],
-            # color=[item[1]["colour"] for item in plot_metadata.items()],
             color=[value["colour"] for value in plot_metadata.values()],
         )
 
@@ -141,11 +126,12 @@ def main() -> mpl.figure.Figure:
         # value over the relevant patch.
         data_matrix = df_plot.to_numpy().flatten()
 
+        min_bar_size = 3
         for i, patch in enumerate(ax.patches):
             width = patch.get_width()
             height = patch.get_height()
             x, y = patch.get_xy()
-            data_i = data_matrix[i] if data_matrix[i] >= 3 else "-"
+            data_i = data_matrix[i] if data_matrix[i] >= min_bar_size else "-"
             ax.annotate(
                 f"{data_i}",
                 (x + width * 0.5, y + height * 0.5),
@@ -155,9 +141,6 @@ def main() -> mpl.figure.Figure:
             )
 
         _ = [ax.spines[x].set_visible(False) for x in ax.spines]
-
-        # ticks = list(range(0, 110, 10))
-        # ax.xaxis.set_ticks(ticks)
 
         loc = mpl.ticker.MultipleLocator(base=5.0)
         ax.set_xlim(0, 100)
@@ -173,4 +156,4 @@ if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
 
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

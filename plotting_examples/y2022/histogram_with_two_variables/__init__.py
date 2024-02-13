@@ -1,0 +1,1 @@
+"""Histogram with overlap."""

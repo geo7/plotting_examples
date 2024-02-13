@@ -25,13 +25,14 @@ from matplotlib.lines import Line2D
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937(seed=0))
+
 
 def random_dates(
     start: pd._libs.tslibs.timestamps.Timestamp,
     end: pd._libs.tslibs.timestamps.Timestamp,
     n_days: int,
     unit: str = "D",
-    seed: int | None = None,
 ) -> pd.Series:
     """
     Generate random dates.
@@ -41,24 +42,21 @@ def random_dates(
 
     Found on a SO post, can't remember where now though.
     """
-    if not seed:  # from piR's answer
-        np.random.seed(0)
-
     ndays = (end - start).days + 1
-    return pd.to_timedelta(np.random.rand(n_days) * ndays, unit=unit) + start
+    return pd.to_timedelta(np_rnd.random(n_days) * ndays, unit=unit) + start
 
 
 def main() -> mpl.figure.Figure:
     """Main."""
-    N = 10_000
+    n = 10_000
     # generate sample data
     df = pd.DataFrame(
         {
-            "location": np.random.choice(
+            "location": np_rnd.choice(
                 ["UK", "US", "FR", "JP", "DE"],
-                size=N,
+                size=n,
             ),
-            "song": np.random.choice(
+            "song": np_rnd.choice(
                 [
                     "one two three",
                     "four five six",
@@ -68,19 +66,19 @@ def main() -> mpl.figure.Figure:
                     "fourteen",
                     "fifteen sixteen",
                 ],
-                size=N,
+                size=n,
             ),
-            "streams": np.random.randint(1_000, 10_000, size=N),
+            "streams": np_rnd.integers(1_000, 10_000, size=n),
             "date": random_dates(
                 start=pd.to_datetime("2020-01-01"),
                 end=pd.to_datetime("2022-03-01"),
-                n_days=N,
+                n_days=n,
             ),
         },
     )
     # aggregate for plotting
     df = (
-        df.groupby(["location", "song", pd.Grouper(key="date", freq="M")])["streams"]
+        df.groupby(["location", "song", pd.Grouper(key="date", freq="ME")])["streams"]
         .sum()
         .reset_index()
         # Aggregated to months so don't need date names here.
@@ -128,7 +126,7 @@ def main() -> mpl.figure.Figure:
 
         # want to format 1000 -> 1,000
         ax.get_yaxis().set_major_formatter(
-            mpl.ticker.FuncFormatter(lambda x, p: format(int(x), ",")),
+            mpl.ticker.FuncFormatter(lambda x, _: format(int(x), ",")),
         )
         # reduce some noise
         ax.spines["top"].set_visible(False)
@@ -138,8 +136,6 @@ def main() -> mpl.figure.Figure:
         fmt_year = mdates.YearLocator()
         ax.xaxis.set_minor_locator(fmt_month)
         ax.xaxis.set_minor_formatter(mdates.DateFormatter("%b"))
-        # ax.xaxis.set_major_locator(fmt_year)
-        # ax.xaxis.set_major_formatter(mdates.DateFormatter("%b"))
         ax.xaxis.set_ticks([])
 
         ax.tick_params(axis="x", which="minor", labelsize=8)
@@ -244,4 +240,4 @@ if __name__ == "__main__":
     ):
         dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
         save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

@@ -42,18 +42,18 @@ def gen_data() -> tuple[pd.DataFrame, dict[str, str]]:
 
     """
     rng = np.random.default_rng(1)
-    N = 1_000
+    n = 1_000
     df = pd.DataFrame(
-        dict(
-            male=np.digitize(
-                np.clip(rng.normal(loc=4, scale=2, size=N), 0, 10),
+        {
+            "male": np.digitize(
+                np.clip(rng.normal(loc=4, scale=2, size=n), 0, 10),
                 range(10),
             ),
-            female=np.digitize(
-                np.clip(rng.normal(loc=6, scale=2, size=N), 0, 10),
+            "female": np.digitize(
+                np.clip(rng.normal(loc=6, scale=2, size=n), 0, 10),
                 range(10),
             ),
-        ),
+        },
     )
     # https://coolors.co/b4edd2-a0cfd3-8d94ba-9a7aa0-87677b
     colour_map = {
@@ -104,7 +104,7 @@ def main() -> mpl.figure.Figure:
             y2: float,
             facecolor: str,
             alpha: float,
-            outline: bool = False,
+            outline: bool,
         ) -> None:
             """Add a bar to the given ax object."""
             width = 1
@@ -144,6 +144,7 @@ def main() -> mpl.figure.Figure:
                 y2=row.row_min,
                 facecolor=metadata.color.GREY,
                 alpha=0.2,
+                outline=False,
             )
 
         ax.spines["right"].set_visible(False)
@@ -190,4 +191,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

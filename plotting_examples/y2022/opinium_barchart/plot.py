@@ -17,9 +17,7 @@ from plotting_examples.y2022 import metadata
 
 
 def main() -> mpl.figure.Figure:
-    # pylint: disable=too-many-locals, too-many-statements
     """Main."""
-
     with plt.rc_context(
         {
             "xtick.major.pad": 10,
@@ -48,8 +46,6 @@ def main() -> mpl.figure.Figure:
         line_width = 20
         start_offset = line_width * 0.08
         percentage_label_shift = 3
-        # positive_bar_color = "#47d64e"
-        # negative_bar_color = "red"
         positive_bar_color = metadata.color.DEEPER_GREEN
         negative_bar_color = metadata.color.PINK_COLOUR
         font_size = 12
@@ -63,9 +59,8 @@ def main() -> mpl.figure.Figure:
         grey_bar_left_x = data["Johnson"]
 
         # shading every other bar a bit
-        bar_i = 0
-        for name, y_val in zip(data, range(8)):
-            y_val = y_val * 2
+        for bar_i, (name, y_val_) in enumerate(zip(data, range(8))):
+            y_val = y_val_ * 2
             x_val = data[name]
             x_loc = 20
             direction = 1
@@ -114,8 +109,6 @@ def main() -> mpl.figure.Figure:
                     alpha=0.07,
                     zorder=0,
                 )
-
-            bar_i += 1
 
         _ = [ax.spines[s].set_visible(False) for s in ax.spines]
         _ = ax.xaxis.set_ticklabels([])
@@ -184,7 +177,6 @@ def main() -> mpl.figure.Figure:
             transform=None,
             verticalalignment="top",
         )
-        print(image.shape)
 
         fig.figimage(
             image,
@@ -203,4 +195,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

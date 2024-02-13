@@ -18,8 +18,7 @@ import itertools
 import pathlib
 import re
 import textwrap
-from collections.abc import Mapping
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -29,6 +28,12 @@ import pandas as pd
 
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
+
+np_rnd = np.random.Generator(np.random.MT19937(2))
+
+
+if TYPE_CHECKING:
+    from collections.abc import Mapping
 
 
 def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
@@ -56,11 +61,9 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
     words = [x for x in re.sub(r"\n|\(|\)", " ", document, flags=re.M).split(" ") if x]
 
     def rand_string() -> str:
-        """
-        random string to represent labelling.
-        """
+        """Random string to represent labelling."""
         return " ".join(
-            np.random.choice(words, size=np.random.randint(3, 15, size=1)),
+            np_rnd.choice(words, size=np_rnd.integers(3, 15, size=1)),
         ).capitalize()
 
     def rand_cont() -> npt.NDArray[np.float64]:
@@ -68,9 +71,9 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         # what we might see from timing data or whatever.
         loc_min = 2
         loc_max = 7
-        mode_1_loc = np.random.randint(loc_min, loc_max, size=1)
-        size = np.random.randint(10, 250, size=1)
-        mode_1 = np.random.normal(
+        mode_1_loc = np_rnd.integers(loc_min, loc_max, size=1)
+        size = np_rnd.integers(10, 250, size=1)
+        mode_1 = np_rnd.normal(
             loc=mode_1_loc,
             scale=2,
             size=size,
@@ -80,15 +83,31 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         if mode_1_loc > loc_max / (loc_max + loc_min):
             direction = -1
 
-        mode_2_loc = int(mode_1_loc + direction * mode_1_loc * 0.5)
-        mode_2_size = int(size * 0.4)
-        mode_2 = np.random.normal(loc=mode_2_loc, scale=2, size=mode_2_size)
+        def _np_array_to_int(arr: np.ndarray | int) -> int:
+            """
+            Convert single element ndarray to int.
 
-        ret = cast(
+            Mainly doing these mode_i checks as I'm updating some code
+            following packages moving on.
+            """
+            if isinstance(arr, np.ndarray):
+                assert len(arr) == 1
+                arr = arr[0]
+            else:
+                assert isinstance(arr, int)
+            return arr
+
+        mode_1_loc = _np_array_to_int(arr=mode_1_loc)
+        mode_2_loc = int(mode_1_loc + direction * mode_1_loc * 0.5)
+        mode_2_loc = _np_array_to_int(arr=mode_2_loc)
+        size = _np_array_to_int(arr=size)
+        mode_2_size = int(size * 0.4)
+        mode_2 = np_rnd.normal(loc=mode_2_loc, scale=2, size=mode_2_size)
+
+        return cast(
             npt.NDArray[np.float64],
             np.clip(np.concatenate([mode_1, mode_2]), a_min=0, a_max=np.inf),
         )
-        return ret
 
     data_dict: dict[str, list[float]] = {"cat": [], "cont": []}
 
@@ -116,8 +135,6 @@ def categorical_scatters(
     color_map: Mapping[Any, str] | None = None,
 ) -> plt.Axes:
     """Create plot."""
-    y_val = 0
-
     # Can use this to get alternating colours, i did then went off it.
     colors = itertools.cycle(
         [metadata.color.PINK_COLOUR, metadata.color.PINK_COLOUR],
@@ -125,14 +142,12 @@ def categorical_scatters(
 
     y_ticks = []
 
-    for g, dfg in data.groupby([cat_var]):
-        if len(g) == 1:
-            g = g[0]
-        y_val += 1
+    for y_val, (g_, dfg) in enumerate(data.groupby([cat_var]), 1):
+        g = g_[0]
         color = next(colors)
         color = color_map[g] if color_map else color
 
-        y_values = np.repeat([y_val], len(dfg)) + np.random.normal(
+        y_values = np.repeat([y_val], len(dfg)) + np_rnd.normal(
             loc=0,
             scale=0.05,
             size=len(dfg),
@@ -142,7 +157,6 @@ def categorical_scatters(
             x=x_values,
             y=y_values,
             color=color,
-            # alpha=0.1,
             alpha=0.3,
         )
 
@@ -181,7 +195,6 @@ def main() -> mpl.figure.Figure:
         },
     ):
         fig, ax = plt.subplots(
-            # figsize=(7, 7),
             figsize=(20, 20),
             ncols=1,
             nrows=1,
@@ -196,7 +209,6 @@ def main() -> mpl.figure.Figure:
             ax=ax,
             color_map=color_map,
         )
-
         ax.set_title(
             "Scatter plot with categorical labels",
             fontsize=20,
@@ -217,4 +229,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

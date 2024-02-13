@@ -1,0 +1,1 @@
+"""Styled bar chart."""

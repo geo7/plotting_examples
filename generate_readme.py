@@ -4,9 +4,11 @@ Generate plots at the end of the README.
 Bit of a hack - but works for now, this is mainly just to display all the created plots
 in the README.
 """
+
 from __future__ import annotations
 
 import ast
+import re
 from pathlib import Path
 
 from PIL import Image
@@ -29,27 +31,21 @@ def resize_image_if_needed(
     place, so the original is lost with this.
 
     Args:
+    ----
         im (str):
             Path to image file.
         FIGSIZE (tuple):
             Typically `figsize` tuple from `plt.subplots(figsize = FIGSIZE)`.
+
     """
     image = Image.open(im)
-    # expected_aspect = FIGSIZE[1] / FIGSIZE[0]
-    # aspect_ratio = image.size[1] / image.size[0]
     width, height = image.size
 
-    M = 500
-    if height > M:
-        scale = M / height
+    m = 500
+    if height > m:
+        scale = m / height
         new_height = int(height * scale)
         new_width = int(width * scale)
-        print(
-            (
-                f"Resizing : {im} by scale {round(scale,1)}, from "
-                f"{(width, height)} to {(new_width, new_height)}"
-            ),
-        )
         new_image = image.resize((new_width, new_height))
         new_image.save(im)
 
@@ -65,43 +61,70 @@ EXCLUDE_PLOTS = [
 ]
 
 
+def docstring_from_py_module(*, mod_path: str | Path) -> str:
+    """
+    Docstrings in plot.py contain context about the plot.
+
+    These are then used in the README.
+    """
+    # with open(mod_path, encoding="utf8") as fh:
+    with Path(mod_path).open() as fh:
+        code_txt = fh.read()
+    mod = ast.parse(code_txt)
+    docstr = ast.get_docstring(mod)
+
+    if docstr == "":
+        msg = f"No docstring found for : {mod_path}"
+        raise ValueError(msg)
+
+    return docstr
+
+
 def main() -> int:
+    """Generate readme with plots and docstring extracts."""
     year = "y2022"
-    # Will have to update this when there's a different year I guess but for now meh.
-    images = sorted(Path(f"./images/{year}").glob("*"))
+
+    years = [
+        # This should get the years up to 2099... If I'm still using matplotlib
+        # at that point I'll consider that a success.... or maybe a failure,
+        # not sure.
+        Path(x.name).stem
+        for x in sorted(Path("./plotting_examples").glob("*"))
+        if "y20" in str(x)
+    ]
 
     readme_data = {}
 
-    for img in images:
-        # Eh - bit of a hack but should work...
-        dir_from_img_path = str(img).split(f"{year}/")[-1].split(".png")[0]
+    for year in years:
+        # Will have to update this when there's a different year I guess but
+        # for now meh.
+        images = sorted(Path(f"./images/{year}").glob("*"))
 
-        code_path = (
-            Path("./plotting_examples") / str(year) / dir_from_img_path / "plot.py"
-        )
+        # For each image want to build up a dictionary of the image path within
+        # the repo, and the docstring from the respective python module. Then
+        # in the README the python docstring will be added alongside the image.
+        for img in images:
+            dir_from_img_path = Path(img.name).stem
 
-        if "DS_Store" in str(code_path):
-            continue
+            code_path = (
+                Path("./plotting_examples") / str(year) / dir_from_img_path / "plot.py"
+            )
 
-        assert img.exists()
+            if "DS_Store" in str(code_path):
+                continue
 
-        # Docstrings in plot.py contain context about the plot that's used in the
-        # README.
-        with open(code_path, encoding="utf8") as fh:
-            code_txt = fh.read()
-        mod = ast.parse(code_txt)
-        docstr = ast.get_docstring(mod)
+            # Not sure why this _wouldn't_ exist
+            if not img.exists():
+                raise ValueError
 
-        if docstr == "":
-            raise ValueError(f"No docstring found for : {code_path}")
+            docstr = docstring_from_py_module(mod_path=code_path)
 
-        readme_data[dir_from_img_path] = {
-            "img_path": img,
-            "doc_str": docstr,
-        }
+            readme_data[dir_from_img_path] = {
+                "img_path": img,
+                "doc_str": docstr,
+            }
 
-    # Might as well sort the generated plots - don't want to include the default plot
-    # either.
+    # Might as well sort the generated plots.
     readme_data = {
         x: readme_data[x]
         for x in sorted(readme_data)
@@ -112,14 +135,13 @@ def main() -> int:
     readme_update = "\n\n# Plots\n\n"
 
     # Create some bullet points with the plot names
-    for title, _ in readme_data.items():
-        readme_update += (
-            f"* [`{title}`](https://github.com/geo7/plotting_examples#{title})\n"
-        )
+    for title in readme_data:
+        readme_update += f"* [`{title}`](https://github.com/geo7/plotting_examples?tab=readme-ov-file#{title})\n"
 
     readme_update += "\n"
 
     for title, data in readme_data.items():
+        year = re.findall(r".*(y\d{4}).*", str(data["img_path"]))[0]
         readme_update += "\n\n"
         url_path = f"{year}/{title}"
         readme_update += f"## [`{title}`]({CODE.format(url_path)})\n\n"
@@ -132,7 +154,7 @@ def main() -> int:
 
     # This is used to signal where automated content starts.
     rm_split = "[comment]: # (Automate plots beneath this.)"
-    with open("README.md", encoding="utf8") as rm:
+    with Path("README.md").open() as rm:
         rm_txt = rm.read()
 
     rm_txt = rm_txt.split(rm_split)[0]
@@ -140,8 +162,8 @@ def main() -> int:
     # Ensure new line at eof
     rm_txt += "\n"
 
-    with open("README.md", "w", encoding="utf8") as rm:
-        rm.write(rm_txt)
+    with Path("README.md").open("w") as file:
+        file.write(rm_txt)
 
     return 0
 

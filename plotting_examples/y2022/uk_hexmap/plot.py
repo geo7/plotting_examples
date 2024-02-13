@@ -18,6 +18,8 @@ from matplotlib.colors import ListedColormap
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+random_choice = np.random.Generator(np.random.MT19937()).choice
+
 
 def main() -> mpl.figure.Figure:
     """Main."""
@@ -55,7 +57,7 @@ def main() -> mpl.figure.Figure:
 
         ax = axes[0]
         gdf["Party"] = list(
-            np.random.choice(
+            random_choice(
                 parties,
                 size=len(gdf),
                 replace=True,
@@ -74,7 +76,7 @@ def main() -> mpl.figure.Figure:
 
         ax = axes[1]
         gdf["Party"] = list(
-            np.random.choice(
+            random_choice(
                 parties,
                 size=len(gdf),
                 replace=True,
@@ -93,7 +95,7 @@ def main() -> mpl.figure.Figure:
 
         ax = axes[2]
         gdf["Party"] = list(
-            np.random.choice(
+            random_choice(
                 parties,
                 size=len(gdf),
                 replace=True,
@@ -137,4 +139,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

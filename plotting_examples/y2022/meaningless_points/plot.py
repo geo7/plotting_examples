@@ -18,6 +18,8 @@ import numpy as np
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937())
+
 
 def main() -> mpl.figure.Figure:
     """Main."""
@@ -56,12 +58,7 @@ def main() -> mpl.figure.Figure:
 
     plot_params = [
         # size, alpha_mult, con_max, num_cont
-        #     (2, 0.1, 10_000, 10),
-        #     (2, 0.02, 3_500, 50),
-        #     (2, 0.02, 4_500, 8),
         (2, 0.3, 8_00, 50),
-        #     (3, 0.35, 5_00, 6),
-        #     (2, 0.35, 2_00, 6),
         (2, 0.35, 2_00, 5),
         (5, 0.05, 5_00, 9),
         (4, 0.15, 5_00, 9),
@@ -103,4 +100,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

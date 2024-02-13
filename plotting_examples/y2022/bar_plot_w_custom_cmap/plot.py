@@ -24,20 +24,21 @@ import pandas as pd
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
+np_rnd = np.random.Generator(np.random.MT19937(0))
+
 
 def generate_data() -> pd.DataFrame:
     """Create sample data."""
-    N = 1_000
-    np.random.seed(1)
+    n = 1_000
     return pd.DataFrame(
         {
-            "race": np.random.choice(
+            "race": np_rnd.choice(
                 ["White", "Black", "Hispanic", "Asian", "All Others"],
-                size=N,
+                size=n,
             ),
-            "church_attendance": np.random.choice(
+            "church_attendance": np_rnd.choice(
                 ["Never", "Seldom", "Yearly", "Monthly", "Weekly", "Weekly+"],
-                size=N,
+                size=n,
                 p=[
                     0.1,
                     0.1,
@@ -109,7 +110,8 @@ def main() -> mpl.figure.Figure:
         axis = iter(axis)
 
         for g, dfg in data.groupby("race"):
-            color_map = mpl.cm.get_cmap(name="cool", lut=100)
+            color_map = mpl.colormaps["cool"].resampled(100)
+
             ax = next(axis)
             ax.yaxis.set_major_locator(loc)
             group_bar_values_unordered = (
@@ -190,4 +192,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

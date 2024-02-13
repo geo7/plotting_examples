@@ -24,7 +24,6 @@ def get_sample_data() -> pd.DataFrame:
 
 def main() -> mpl.figure.Figure:
     """Main."""
-
     with plt.rc_context(
         {
             "xtick.major.pad": 10,
@@ -47,4 +46,4 @@ def main() -> mpl.figure.Figure:
 if __name__ == "__main__":
     dvc_entry.add_to_dvc(path=pathlib.Path(__file__))
     save_plot_output.save_plot(fig=main(), file=__file__)
-    raise SystemExit()
+    raise SystemExit

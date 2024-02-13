@@ -4,70 +4,99 @@ version = "0.1.0"
 description = "Example plots"
 authors = ["George Lenton <georgelenton@gmail.com>"]
 readme = "README.md"
-packages = [{include = "plotting_examples"}]
+packages = [{ include = "plotting_examples" }]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-dvc = "^2.56.0"
-fastparquet = "^2023.4.0"
+python = "^3.12"
+dvc = "^3.0.0"
+fastparquet = "^2024.2.0"
 matplotlib = "^3.7.1"
-pyarrow = "^12.0.0"
-seaborn = "^0.12.2"
-geopandas = "^0.13.0"
+pyarrow = "^15.0.0"
+seaborn = "^0.13.0"
+geopandas = "^0.14.3"
 pandas = "^2.0.1"
+openpyxl = "^3.1.2"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.3.1"
-pylint = "^2.17.4"
-flake8 = "^6.0.0"
-black = "^23.3.0"
+ruff = ">=0.0.265,<0.3.0"
 mypy = "^1.3.0"
-jupyterlab = "^3.6.3"
+jupyterlab = "^4.1.0"
 pdbpp = "^0.10.3"
 
-[tool.isort]
-profile = "black"
-known_first_party = "plotting_examples"
-sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY"
-add_imports="from __future__ import annotations"
-
-[tool.black]
-line-length = 88
-
-[tool.pylint."MESSAGES CONTROL"]
-# Default of 5 is a bit strict, esp for plotting methods.
-max-args = 10
-good-names = [
-    "ax", # mpl axis
-    # Some typical variable names
-    "x",
-    "y",
-    "y1",
-    "y2",
-    # Used in grouping
-    "g",
-    # Sample size
-    "N",
-    # dataframe...
-    "df",
-    "dt",
-    # Classic...
-    "i",
-    "j",
-    # I don't agree with Pylint default bad-names.
-    "bar",
-    "xs",
-    "ys",
-]
-
-[tool.ruff]
-# https://beta.ruff.rs/docs/configuration/#using-pyprojecttoml
-ignore = []
-# Allow autofix for all enabled rules (when `--fix`) is provided.
-unfixable = []
-# Same as Black.
-line-length = 88
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN101", # Type annotation for 'self'
+    "COM812", # trailing comma - conflicted
+    "ISC001",
+    "D211",   # `one-blank-line-before-class`.
+    "D212",   # warning: `multi-line-summary-first-line`
+    "D401",   # First line of docstring should be in imperative mood: "Main."
+    "FIX002", # Line contains TODO, consider resolving the issue
+    "PD015",  # Use `.merge` method instead of `pd.merge` function. They have equivalent functionality.
+    "PD901",  # Avoid using the generic variable name `df` for DataFrames
+    "TD002",  # Missing author in TODO; try: `# TODO(<author_name>): ...` or `# TODO @<author_name>: ...`
+    "TD003",  # Missing issue link on the line following this TODO
+]
+fixable = ["ALL"]
+unfixable = []
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
+"plotting_examples/y2022/scatter_distributions/plot.py" = [
+    "PLR0913", # Too many arguments in function definition (6 > 5)
+    "S101",    # Use of `assert` detected
+]
+
+"plotting_examples/y2022/opinium_barchart/plot.py" = [
+    "PLR0915", # Too many statements (54 > 50)
+]
+
+"plotting_examples/y2022/meaningless_points/plot.py" = [
+    "PLR0913", # Too many arguments in function definition (7 > 5)
+]
+
+
+"plotting_examples/y2022/histogram_with_two_variables/plot.py" = [
+    "PLR0913", # Too many arguments in function definition (7 > 5)
+    "FBT001",  #  Boolean-typed positional argument in function definition
+]
+
+"plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py" = [
+    "PLR0913", # Too many arguments in function definition (10 > 5)
+]
+
+
+[tool.ruff.lint.flake8-type-checking]
+# Don't want to have things move to TYPE_CHECKING if needed by pydantic.
+runtime-evaluated-base-classes = ["pydantic.BaseModel"]
+
+[tool.ruff.lint.isort]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+case-sensitive = true
+combine-as-imports = true
+
+
+# warning: The top-level linter settings are deprecated in favour of their counterparts in the `lint` section. Please update the following options in `pyproject.toml`:
+#   - 'flake8-type-checking' -> 'lint.flake8-type-checking'
+#   - 'isort' -> 'lint.isort'
+#   - 'per-file-ignores' -> 'lint.per-file-ignores'
