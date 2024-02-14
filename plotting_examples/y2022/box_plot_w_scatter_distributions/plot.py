@@ -154,7 +154,7 @@ def top_bottom_whisker_y_values(*, values: list[float]) -> tuple[float, float]:
 
 def boxp_hline(
     *,
-    ax: plt.Axes,
+    ax: plt.Axes,  # type: ignore[name-defined]
     x_center: float,
     y_value: float,
     box_width: float,
@@ -174,7 +174,7 @@ def boxp_hline(
 
 
 def boxp_vline(
-    ax: plt.Axes,
+    ax: plt.Axes,  # type: ignore[name-defined]
     x: float,
     ymin: float,
     ymax: float,
@@ -195,7 +195,7 @@ def boxp_vline(
 
 def whisker_tops(
     *,
-    ax: plt.Axes,
+    ax: plt.Axes,  # type: ignore[name-defined]
     whisker_top: float,
     whisker_bottom: float,
     xmin: float,
@@ -221,7 +221,7 @@ def whisker_tops(
 
 def make_single_box(
     *,
-    ax: plt.Axes,
+    ax: plt.Axes,  # type: ignore[name-defined]
     values: list[float],
     x_center: float,
     scatter_color: str,

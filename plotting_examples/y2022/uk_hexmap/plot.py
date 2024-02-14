@@ -131,7 +131,7 @@ def main() -> mpl.figure.Figure:
         colors = [partycolors[k] for k in sorted(partycolors.keys())]
 
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
-    fig.set_tight_layout(True)
+    fig.set_tight_layout(True)  # type: ignore[attr-defined]
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     return fig
 

@@ -102,7 +102,8 @@ def main() -> mpl.figure.Figure:
         },
     ):
         fig = binary_outcome_plot(data=make_data())
-        fig.set_tight_layout(True)
+        fig.set_tight_layout(True)  # type: ignore[attr-defined]
+
     return fig
 
 

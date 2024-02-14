@@ -140,8 +140,8 @@ def main() -> mpl.figure.Figure:
 
         ax.grid(alpha=0.15, axis="y", zorder=0)
 
-        years = YearLocator(5)  # every year
-        years_fmt = DateFormatter("%Y")
+        years = YearLocator(5)  # type: ignore[no-untyped-call]
+        years_fmt = DateFormatter("%Y")  # type: ignore[no-untyped-call]
         ax.xaxis.set_major_locator(years)
         ax.xaxis.set_major_formatter(years_fmt)
 

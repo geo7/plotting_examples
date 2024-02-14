@@ -199,7 +199,7 @@ class PlotSections:
     # rename to bivariate.
     @staticmethod
     def main(
-        ax: plt.Axes,
+        ax: plt.Axes,  # type: ignore[name-defined]
         df: pd.DataFrame,
         vvl: dict[str, dict[float, str]],
         # cnl: dict[str, str],
@@ -270,7 +270,7 @@ class PlotSections:
 
     @staticmethod
     def side_marginal(
-        ax: plt.Axes,
+        ax: plt.Axes,  # type: ignore[name-defined]
         df: pd.DataFrame,
         vvl: dict[str, dict[float, str]],
         cnl: dict[str, str],
@@ -316,7 +316,7 @@ class PlotSections:
 
     @staticmethod
     def bottom_marginal(
-        ax: plt.Axes,
+        ax: plt.Axes,  # type: ignore[name-defined]
         df: pd.DataFrame,
         vvl: dict[str, dict[float, str]],
         cnl: dict[str, str],
@@ -357,7 +357,7 @@ class PlotSections:
         ax.spines.left.set_visible(False)
 
     @staticmethod
-    def title(ax: plt.Axes, cnl: dict[str, str]) -> None:
+    def title(ax: plt.Axes, cnl: dict[str, str]) -> None:  # type: ignore[name-defined]
         """Overall title."""
         ax.text(
             s="Labradors",
@@ -384,7 +384,7 @@ class PlotSections:
         ax.axis("off")
 
     @staticmethod
-    def top_left_corner(ax: plt.Axes) -> None:
+    def top_left_corner(ax: plt.Axes) -> None:  # type: ignore[name-defined]
         """Plot logo."""
         img_path = IMAGE_PATH
         club_icon = Image.open(img_path)
@@ -392,12 +392,12 @@ class PlotSections:
         ax.axis("off")
 
     @staticmethod
-    def top_right_corner(ax: plt.Axes) -> None:
+    def top_right_corner(ax: plt.Axes) -> None:  # type: ignore[name-defined]
         """Just leaving this empty for now."""
         ax.axis("off")
 
     @staticmethod
-    def bottom_right_corner(ax: plt.Axes, df: pd.DataFrame) -> None:
+    def bottom_right_corner(ax: plt.Axes, df: pd.DataFrame) -> None:  # type: ignore[name-defined]
         """Some random information like data source etc."""
         ax.text(
             s=(
@@ -420,7 +420,7 @@ class PlotSections:
         ax.axis("off")
 
     @staticmethod
-    def footnote(ax: plt.Axes) -> None:
+    def footnote(ax: plt.Axes) -> None:  # type: ignore[name-defined]
         """
         Plot footnote.
 
@@ -458,7 +458,7 @@ def main() -> mpl.figure.Figure:
         fig = plt.figure(
             figsize=(15, 10),
         )
-        ax_dict = fig.subplot_mosaic(LAYOUT)
+        ax_dict = fig.subplot_mosaic(LAYOUT)  # type: ignore[arg-type]
 
         plot_sections.title(ax=ax_dict["title"], cnl=cnl)
         plot_sections.bottom_marginal(

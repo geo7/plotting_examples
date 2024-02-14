@@ -57,7 +57,7 @@ def sample_data() -> tuple[pd.DataFrame, dict[int, str], dict[str, str]]:
     return df, index_to_meaning_map, colour_map
 
 
-def plot_bar_percentages(df: pd.DataFrame, ax: plt.Axes) -> plt.Axes:
+def plot_bar_percentages(df: pd.DataFrame, ax: plt.Axes) -> plt.Axes:  # type: ignore[name-defined]
     """Plot percentages next to bars."""
     # Plot the percentages.
     for i, patch in enumerate(ax.patches):
@@ -173,7 +173,7 @@ def main() -> mpl.figure.Figure:
 
         ax.grid(linewidth=0.2, which="major", axis="y")
 
-        fig.set_tight_layout(True)
+        fig.set_tight_layout(True)  # type: ignore[attr-defined]
         fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
         ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     return fig
