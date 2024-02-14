@@ -146,7 +146,7 @@ def main() -> mpl.figure.Figure:
         ax.set_xlim(0, 100)
         ax.xaxis.set_major_locator(loc)
 
-    fig.set_tight_layout(True)
+    fig.set_tight_layout(True)  # type: ignore[attr-defined]
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     return fig

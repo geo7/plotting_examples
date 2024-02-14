@@ -97,7 +97,7 @@ def main() -> mpl.figure.Figure:
             zorder=3,
         )
 
-        ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
+        ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
         ax.grid(alpha=0.15)
 
         # labels
@@ -159,8 +159,8 @@ def main() -> mpl.figure.Figure:
         )
 
         # Format default axis to just show the month/day.
-        ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))
-        ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))
+        ax.xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
+        ax.xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))  # type: ignore[no-untyped-call]
 
         for label in ax.get_xticklabels():
             label.set_rotation(80)
@@ -169,7 +169,7 @@ def main() -> mpl.figure.Figure:
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
-    fig.set_tight_layout(True)
+    fig.set_tight_layout(True)  # type: ignore[attr-defined]
     return fig
 
 

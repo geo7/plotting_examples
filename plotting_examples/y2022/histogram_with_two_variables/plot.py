@@ -98,7 +98,7 @@ def main() -> mpl.figure.Figure:
         )
 
         def add_bar(
-            ax: plt.Axes,
+            ax: plt.Axes,  # type: ignore[name-defined]
             x: int,
             y1: float,
             y2: float,

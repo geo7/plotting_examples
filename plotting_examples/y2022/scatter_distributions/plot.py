@@ -71,8 +71,8 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         # what we might see from timing data or whatever.
         loc_min = 2
         loc_max = 7
-        mode_1_loc = np_rnd.integers(loc_min, loc_max, size=1)
-        size = np_rnd.integers(10, 250, size=1)
+        mode_1_loc = np_rnd.integers(loc_min, loc_max, size=1)[0]
+        size = np_rnd.integers(10, 250, size=1)[0]
         mode_1 = np_rnd.normal(
             loc=mode_1_loc,
             scale=2,
@@ -83,7 +83,7 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
         if mode_1_loc > loc_max / (loc_max + loc_min):
             direction = -1
 
-        def _np_array_to_int(arr: np.ndarray | int) -> int:
+        def _np_array_to_int(arr: npt.ArrayLike | int) -> int:
             """
             Convert single element ndarray to int.
 
@@ -94,8 +94,8 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
                 assert len(arr) == 1
                 arr = arr[0]
             else:
-                assert isinstance(arr, int)
-            return arr
+                assert isinstance(arr, int | np.int64)
+            return cast(int, arr)
 
         mode_1_loc = _np_array_to_int(arr=mode_1_loc)
         mode_2_loc = int(mode_1_loc + direction * mode_1_loc * 0.5)
@@ -124,7 +124,7 @@ def sample_data(n_categories: int = 12) -> tuple[pd.DataFrame, dict[int, str]]:
 
 def categorical_scatters(
     *,
-    ax: plt.Axes,
+    ax: plt.Axes,  # type: ignore[name-defined]
     data: pd.DataFrame,
     cont_var: str,
     cat_var: str,
@@ -133,7 +133,7 @@ def categorical_scatters(
     # meant to be the same color then just pass in with the same value for each category
     # - they should all still be represented though.
     color_map: Mapping[Any, str] | None = None,
-) -> plt.Axes:
+) -> plt.Axes:  # type: ignore[name-defined]
     """Create plot."""
     # Can use this to get alternating colours, i did then went off it.
     colors = itertools.cycle(
@@ -220,7 +220,7 @@ def main() -> mpl.figure.Figure:
     ax.spines["left"].set_visible(False)
     ax.spines["bottom"].set_visible(False)
 
-    fig.set_tight_layout(True)
+    fig.set_tight_layout(True)  # type: ignore[attr-defined]
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     return fig

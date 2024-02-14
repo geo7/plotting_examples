@@ -282,13 +282,13 @@ stages:
     deps:
     - path: plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py
       hash: md5
-      md5: 04a40f8169611b4cbc07f2b6ee627c99
-      size: 11507
+      md5: 5c6b378030e2bed21d89b1273068f173
+      size: 11627
     outs:
     - path: images/y2022/box_plot_w_scatter_distributions.png
       hash: md5
-      md5: 13b8077a09263fe261358e7818f61460
-      size: 467303
+      md5: 258d928fb622c94794a4d326ddc101d5
+      size: 468196
   y2022_sns_violin_plot_custom:
     cmd: poetry run python -m plotting_examples.y2022.sns_violin_plot_custom.plot
     deps:
@@ -305,8 +305,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/bar_plot_w_custom_cmap/plot.py
       hash: md5
-      md5: 1081dd8f3982ca499c0bdb588f1673cf
-      size: 6000
+      md5: 82214969a9455e9e98fcbcfd3f226342
+      size: 6030
     outs:
     - path: images/y2022/bar_plot_w_custom_cmap.png
       hash: md5
@@ -317,8 +317,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/histogram_with_two_variables/plot.py
       hash: md5
-      md5: e8aaf8d7f2e58f0f08d5905f4d6545f5
-      size: 5818
+      md5: 0518b1672f458e6831ce1bba993acfa4
+      size: 5848
     outs:
     - path: images/y2022/histogram_with_two_variables.png
       md5: 2e0d94432170ec007918cead8ddb08cb
@@ -328,8 +328,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/binary_outcome_variable/plot.py
       hash: md5
-      md5: 82bb25183530cab03c5ebbd65f3793fb
-      size: 2759
+      md5: f8468c0554abebb6a4fc31f9ea511457
+      size: 2790
     outs:
     - path: images/y2022/binary_outcome_variable.png
       hash: md5
@@ -340,8 +340,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/pos_neg_split_hbar/plot.py
       hash: md5
-      md5: 28d66bc9157f62574f831bdc444b0013
-      size: 5683
+      md5: 8cb4fba6391d62db1b439f91b305efcd
+      size: 5743
     outs:
     - path: images/y2022/pos_neg_split_hbar.png
       md5: 09185fc58c132ebac7555ecf30463f81
@@ -363,8 +363,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/line_plot_fill_between/plot.py
       hash: md5
-      md5: d7cff1ee9454970d2867d773e9b02fa9
-      size: 5006
+      md5: 802b36cd695bdd088c2bc5380a9dd90a
+      size: 5135
     outs:
     - path: images/y2022/line_plot_fill_between.png
       md5: 9dcd62a428039331ee813626f2c53089
@@ -374,8 +374,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/pandas_stacked_bars_with_values/plot.py
       hash: md5
-      md5: f2ae5b1cdde5be98f1adf604627faea7
-      size: 4344
+      md5: 721c3ddf3a5fb3ffd37c5625942eff0b
+      size: 4374
     outs:
     - path: images/y2022/pandas_stacked_bars_with_values.png
       md5: 199cbc2e9ac00928ff31306bb0f4ab5e
@@ -385,8 +385,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/split_x_axis_custom_legend/plot.py
       hash: md5
-      md5: d1b5bf731ad60df78560032c494e850d
-      size: 6613
+      md5: 6c5854702e4a9a48dc35ccd757c9f741
+      size: 6805
     outs:
     - path: images/y2022/split_x_axis_custom_legend.png
       hash: md5
@@ -397,13 +397,13 @@ stages:
     deps:
     - path: plotting_examples/y2022/scatter_distributions/plot.py
       hash: md5
-      md5: 50e55ada6e2189e412b897eaaba98a91
-      size: 7005
+      md5: 08c52ac504cb54a5e000540b1f1f10ef
+      size: 7128
     outs:
     - path: images/y2022/scatter_distributions.png
       hash: md5
-      md5: 4d3c39eb4908c6500df3778005e3d935
-      size: 604570
+      md5: 78dcd94a72b9a63beb8c7f755d1aeb4a
+      size: 549714
   y2022_default_plot:
     cmd: poetry run python -m plotting_examples.y2022.default_plot.plot
     deps:
@@ -420,8 +420,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/scatter_w_outlined_text_insert/plot.py
       hash: md5
-      md5: 43b616b2aac98ea2c871e75232041c27
-      size: 4800
+      md5: d005aa88877340480f65c1c66295d172
+      size: 4852
     outs:
     - path: images/y2022/scatter_w_outlined_text_insert.png
       md5: 6de49552e5ea5e034d052d98943f89b9
@@ -442,13 +442,13 @@ stages:
     deps:
     - path: plotting_examples/y2022/uk_hexmap/plot.py
       hash: md5
-      md5: 08820c58d34ce7bb8eb10887e274719a
-      size: 3924
+      md5: 8a51f37b75a0986699c5ec5f1677be0b
+      size: 3954
     outs:
     - path: images/y2022/uk_hexmap.png
       hash: md5
-      md5: 47ce41c54a1c4b98721616bf1b3dd0f8
-      size: 536009
+      md5: cde1c189cd99072a3f962f5c5b5a77f5
+      size: 535472
   y2022_meaningless_points:
     cmd: poetry run python -m plotting_examples.y2022.meaningless_points.plot
     deps:
@@ -465,8 +465,8 @@ stages:
     deps:
     - path: plotting_examples/y2022/stacked_bar_with_single_bars_layout/plot.py
       hash: md5
-      md5: bc6593ec647abd0a04d1ce7c2e40b67d
-      size: 14757
+      md5: 363c16982b9bc5c3132fb0ed2e1ecdd3
+      size: 15023
     outs:
     - path: images/y2022/stacked_bar_with_single_bars_layout.png
       md5: a0f95c280b1fe5edf4f2946654be8ed6
@@ -499,10 +499,10 @@ stages:
     deps:
     - path: plotting_examples/y2024/cat_weight/plot.py
       hash: md5
-      md5: f0a9b877d7ca039f7abe97ae22fc199f
-      size: 10948
+      md5: 13402a6fa3f54d47ef9a53083ef152d3
+      size: 11300
     outs:
     - path: images/y2024/cat_weight.png
       hash: md5
-      md5: 349531013b8ce68427565be568504f39
-      size: 795106
+      md5: 3e11d74efbaa9677d5fa6e6254eea4f8
+      size: 1102297

@@ -99,11 +99,11 @@ def main() -> mpl.figure.Figure:
         )
     )
 
-    def format_axis(ax: plt.Axes) -> None:
+    def format_axis(ax: plt.Axes) -> None:  # type: ignore[name-defined]
         """Format axis."""
         ax.grid(alpha=0.2)
 
-    def stream_plot(df: pd.DataFrame, country: str, ax: plt.Axes) -> None:
+    def stream_plot(df: pd.DataFrame, country: str, ax: plt.Axes) -> None:  # type: ignore[name-defined]
         for _, song_data in df.groupby("song"):
             ax.plot(
                 song_data["date"],
@@ -132,17 +132,17 @@ def main() -> mpl.figure.Figure:
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
 
-        fmt_month = mdates.MonthLocator(interval=1)
-        fmt_year = mdates.YearLocator()
+        fmt_month = mdates.MonthLocator(interval=1)  # type: ignore[no-untyped-call]
+        fmt_year = mdates.YearLocator()  # type: ignore[no-untyped-call]
         ax.xaxis.set_minor_locator(fmt_month)
-        ax.xaxis.set_minor_formatter(mdates.DateFormatter("%b"))
+        ax.xaxis.set_minor_formatter(mdates.DateFormatter("%b"))  # type: ignore[no-untyped-call]
         ax.xaxis.set_ticks([])
 
         ax.tick_params(axis="x", which="minor", labelsize=8)
 
         sec_xaxis = ax.secondary_xaxis(-0.1)
         sec_xaxis.xaxis.set_major_locator(fmt_year)
-        sec_xaxis.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
+        sec_xaxis.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))  # type: ignore[no-untyped-call]
         sec_xaxis.spines["bottom"].set_visible(False)
         sec_xaxis.tick_params(length=0, labelsize=12)
 

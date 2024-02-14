@@ -34,10 +34,10 @@ cloc:
 pre-commit-run:
 	poetry run pre-commit run --all-files
 
-
 readme: ## Generate README file.
 	poetry run python generate_readme.py
 
+# This'll just run through all the plots.
 repro: ## run dvc repro
 	poetry run dvc repro -f dvc.yaml
 
@@ -45,6 +45,9 @@ repro: ## run dvc repro
 ########
 # LINT #
 ########
+
+mypy:
+	poetry run mypy . --strict
 
 lint: mypy ## run linting - mypy,ruff
 	poetry run ruff check .

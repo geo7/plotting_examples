@@ -167,7 +167,7 @@ def main() -> mpl.figure.Figure:
         },
     ):
         fig = plt.figure(figsize=(15, 10))
-        ax_dict = fig.subplot_mosaic(LAYOUT)
+        ax_dict = fig.subplot_mosaic(LAYOUT)  # type: ignore[arg-type]
 
         # Plot rolling average
         ax_dict["main"].plot(df["datestamp"], df["r10"], color=color.PINK_COLOUR, lw=3)
@@ -190,11 +190,11 @@ def main() -> mpl.figure.Figure:
         )
 
         ax_dict["main"].set_ylabel("Weight kg")
-        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=1))
+        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
 
         for label in ax_dict["main"].get_xticklabels():
             label.set_rotation(80)
-            label.set_ha("center")
+            label.set_ha("center")  # type: ignore[attr-defined]
 
         # Remove spines for top/right
         ax_dict["main"].spines["top"].set_visible(False)
@@ -322,6 +322,12 @@ def main() -> mpl.figure.Figure:
             verticalalignment="bottom",
             color=COLOR_SUBTITLE_TEXT,
         )
+
+        for axis in {x for lst in LAYOUT for x in lst}:
+            ax_dict[axis].set_facecolor(metadata.color.BACKGROUND_COLOUR)
+
+        fig.set_tight_layout(True)  # type: ignore[attr-defined]
+        fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
         return fig
 

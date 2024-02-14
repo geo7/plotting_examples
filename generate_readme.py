@@ -77,6 +77,10 @@ def docstring_from_py_module(*, mod_path: str | Path) -> str:
         msg = f"No docstring found for : {mod_path}"
         raise ValueError(msg)
 
+    if docstr is None:
+        msg = "Do not expect docstring to be None."
+        raise ValueError(msg)
+
     return docstr
 
 

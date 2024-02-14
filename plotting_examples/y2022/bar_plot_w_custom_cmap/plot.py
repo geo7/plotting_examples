@@ -184,7 +184,7 @@ def main() -> mpl.figure.Figure:
 
         ax.set_facecolor(metadata.color.BACKGROUND_COLOUR)
 
-    fig.set_tight_layout(True)
+    fig.set_tight_layout(True)  # type: ignore[attr-defined]
     fig.patch.set_facecolor(metadata.color.BACKGROUND_COLOUR)
     return fig
 
