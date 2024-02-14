@@ -18,7 +18,7 @@ from matplotlib.colors import ListedColormap
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
-random_choice = np.random.Generator(np.random.MT19937()).choice
+random_choice = np.random.Generator(np.random.MT19937(1)).choice
 
 
 def main() -> mpl.figure.Figure:

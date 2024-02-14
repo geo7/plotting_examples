@@ -170,7 +170,13 @@ def main() -> mpl.figure.Figure:
         ax_dict = fig.subplot_mosaic(LAYOUT)  # type: ignore[arg-type]
 
         # Plot rolling average
-        ax_dict["main"].plot(df["datestamp"], df["r10"], color=color.PINK_COLOUR, lw=3)
+        ax_dict["main"].plot(
+            df["datestamp"],
+            df["r10"],
+            color=color.PINK_COLOUR,
+            lw=3,
+            zorder=10,
+        )
 
         # Want to ensure that no daily lines are drawn where data has been imputed -
         # will still create the rolling average line here.
