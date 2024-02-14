@@ -22,7 +22,7 @@ import pandas as pd
 from plotting_examples import dvc_entry, save_plot_output
 from plotting_examples.y2022 import metadata
 
-np_rnd = np.random.Generator(np.random.MT19937())
+np_rnd = np.random.Generator(np.random.MT19937(1))
 
 T = TypeVar("T")
 

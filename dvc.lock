@@ -282,13 +282,13 @@ stages:
     deps:
     - path: plotting_examples/y2022/box_plot_w_scatter_distributions/plot.py
       hash: md5
-      md5: 5c6b378030e2bed21d89b1273068f173
-      size: 11627
+      md5: d9fc37e34322310fbdea771e824c21ea
+      size: 11628
     outs:
     - path: images/y2022/box_plot_w_scatter_distributions.png
       hash: md5
-      md5: 258d928fb622c94794a4d326ddc101d5
-      size: 468196
+      md5: 33dc283243d8df737f43f92f990c62ca
+      size: 469728
   y2022_sns_violin_plot_custom:
     cmd: poetry run python -m plotting_examples.y2022.sns_violin_plot_custom.plot
     deps:
@@ -442,13 +442,13 @@ stages:
     deps:
     - path: plotting_examples/y2022/uk_hexmap/plot.py
       hash: md5
-      md5: 8a51f37b75a0986699c5ec5f1677be0b
-      size: 3954
+      md5: 88fa207aa2f4176d2cba81a5383e49a3
+      size: 3955
     outs:
     - path: images/y2022/uk_hexmap.png
       hash: md5
-      md5: cde1c189cd99072a3f962f5c5b5a77f5
-      size: 535472
+      md5: e7fe06a9f73be99214870928b9768d3a
+      size: 536769
   y2022_meaningless_points:
     cmd: poetry run python -m plotting_examples.y2022.meaningless_points.plot
     deps:
@@ -499,10 +499,10 @@ stages:
     deps:
     - path: plotting_examples/y2024/cat_weight/plot.py
       hash: md5
-      md5: 13402a6fa3f54d47ef9a53083ef152d3
-      size: 11300
+      md5: bdbd1793323e93e883bc0d54a3fc3892
+      size: 11382
     outs:
     - path: images/y2024/cat_weight.png
       hash: md5
-      md5: 3e11d74efbaa9677d5fa6e6254eea4f8
-      size: 1102297
+      md5: adeb2ea58b8f9088fdc367dda2b345ce
+      size: 1101888
