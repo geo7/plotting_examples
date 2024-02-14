@@ -186,6 +186,7 @@ def main() -> mpl.figure.Figure:
                 data["cat_daily_avg"].loc[~data["imputed"]],
                 color=color.GREY,
                 lw=1,
+                zorder=5,
             )
 
         ax_dict["main"].scatter(
@@ -193,6 +194,7 @@ def main() -> mpl.figure.Figure:
             df["cat_daily_avg"],
             color=df["scatter_color"],
             s=df["scatter_size"],
+            zorder=5,
         )
 
         ax_dict["main"].set_ylabel("Weight kg")
