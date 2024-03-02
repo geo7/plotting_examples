@@ -504,5 +504,5 @@ stages:
     outs:
     - path: images/y2024/cat_weight.png
       hash: md5
-      md5: 0d8d729e8d1bc6669d968aee05ed8a92
-      size: 1122466
+      md5: 83c3d600eda19cdd3d1dcb33b8405c74
+      size: 1109783
