@@ -5,6 +5,7 @@ Hex map for the UK constituencies.
 Some meaningless generated data - small multiples with hex maps can be useful sometimes
 though. Could be good to add in the geographically accurate version as well.
 """
+
 from __future__ import annotations
 
 import pathlib

@@ -6,6 +6,7 @@ Split by dichotomous variable, with bar classifications.
 
 Can be a bit messy - not sure I'm much of a fan - but wanted to re-create anyway.
 """
+
 from __future__ import annotations
 
 import io

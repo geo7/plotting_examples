@@ -8,6 +8,7 @@ Example of:
 
 - Outlining text elements in a plot.
 """
+
 from __future__ import annotations
 
 import pathlib

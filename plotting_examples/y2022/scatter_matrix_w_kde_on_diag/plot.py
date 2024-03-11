@@ -11,6 +11,7 @@ some sort of table from pd.cut on the others or whatever.
 
 I'd probably just use subplot_mosaic as well now - that's grown on me a lot since this.
 """
+
 from __future__ import annotations
 
 import itertools

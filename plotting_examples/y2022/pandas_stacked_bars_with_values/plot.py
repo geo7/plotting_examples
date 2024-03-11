@@ -8,6 +8,7 @@ Example of:
 
 - fixed formatting - setting categorical ticks at particular positions.
 """
+
 from __future__ import annotations
 
 import io

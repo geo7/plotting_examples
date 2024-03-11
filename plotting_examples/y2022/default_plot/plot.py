@@ -1,5 +1,6 @@
 # pylint: disable=duplicate-code
 """Default for plotting example - just to base others off."""
+
 from __future__ import annotations
 
 import pathlib

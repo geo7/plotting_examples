@@ -11,6 +11,7 @@ Example of:
 - different fonts
 - filling between lines
 """
+
 from __future__ import annotations
 
 import pathlib

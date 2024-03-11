@@ -7,6 +7,7 @@ ofc the objects can be accessed/iterated/edited over as with any other mpl axis.
 
 What's here doesn't look good - just an example of changing defaults.
 """
+
 from __future__ import annotations
 
 import pathlib

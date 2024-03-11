@@ -8,6 +8,7 @@ left with this.
 
 The result is pretty rubbish :)
 """
+
 from __future__ import annotations
 
 import pathlib
