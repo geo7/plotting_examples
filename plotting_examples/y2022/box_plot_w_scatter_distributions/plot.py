@@ -8,6 +8,7 @@ from scratch using hlines etc, for no particular reason.
 
 Data was from tidy tuesday.
 """
+
 from __future__ import annotations
 
 import pathlib

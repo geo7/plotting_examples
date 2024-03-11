@@ -11,6 +11,7 @@ Example of:
 - using different colours for bars depending on their values (custom cmap).
 - padding around the axis using rc parameters
 """
+
 from __future__ import annotations
 
 import pathlib

@@ -11,6 +11,7 @@ Example of:
 - generating random date data
 - multiple x-axis to display years / months
 """
+
 from __future__ import annotations
 
 import pathlib

@@ -4,6 +4,7 @@ Bar chart style copied from Opinium.
 
 Saw this on twitter (i think) and thought I'd recreate it in mpl.
 """
+
 from __future__ import annotations
 
 import pathlib

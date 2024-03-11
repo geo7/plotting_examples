@@ -12,6 +12,7 @@ Example of:
 - setting categorical ticks at particular positions.
 
 """
+
 from __future__ import annotations
 
 import itertools

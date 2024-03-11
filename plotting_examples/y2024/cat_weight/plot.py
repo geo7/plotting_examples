@@ -8,6 +8,7 @@ with a ten day rolling average. Most days were covered, where there are missing 
 they're imputed using the average of the days either side, eg `(a, nan, b) -> (a,
 (a+b)/2, b)` though this is just a plot.
 """
+
 from __future__ import annotations
 
 import datetime as dt

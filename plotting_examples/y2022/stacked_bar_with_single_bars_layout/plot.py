@@ -11,6 +11,7 @@ Don't think I'm too keen on the code for this plot - though it's not always so c
 
 Obviously, the data is made up.
 """
+
 from __future__ import annotations
 
 import pathlib
