@@ -233,7 +233,7 @@ def main() -> mpl.figure.Figure:
 
         heaviest_idx = df["cat_daily_avg"].idxmax()
         _ = ax_dict["main"].annotate(
-            f"{df['cat_daily_avg'].loc[heaviest_idx].round(1)} kg",
+            f"{df['cat_daily_avg'].loc[heaviest_idx].round(2)} kg",
             # where the arrow should end up
             xy=(
                 df["datestamp"].iloc[heaviest_idx],
@@ -255,7 +255,7 @@ def main() -> mpl.figure.Figure:
 
         lightest_idx = df["cat_daily_avg"].idxmin()
         _ = ax_dict["main"].annotate(
-            f"{df['cat_daily_avg'].loc[lightest_idx].round(1)} kg",
+            f"{df['cat_daily_avg'].loc[lightest_idx].round(2)} kg",
             # where the arrow should end up
             xy=(
                 df["datestamp"].iloc[lightest_idx],
