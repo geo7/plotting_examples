@@ -76,7 +76,7 @@ them to lose a bit of weight. Data collection is just a daily weigh, the average
 this is taken (as there are sometimes multiple entries in a day) and then plotted along
 with a ten day rolling average. Most days were covered, where there are missing days
 they're imputed using the average of the days either side, eg `(a, nan, b) -> (a,
-(a+b)/2, b)` though this is just a plot.
+(a+b)/2, b)` though this is just a plot..
 
 ![](images/y2024/cat_weight.png)
 
