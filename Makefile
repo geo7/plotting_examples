@@ -39,7 +39,7 @@ readme: ## Generate README file.
 
 # This'll just run through all the plots.
 repro: ## run dvc repro
-	poetry run dvc repro -f dvc.yaml
+	poetry run dvc repro dvc.yaml
 
 
 ########

@@ -6,7 +6,7 @@ them to lose a bit of weight. Data collection is just a daily weigh, the average
 this is taken (as there are sometimes multiple entries in a day) and then plotted along
 with a ten day rolling average. Most days were covered, where there are missing days
 they're imputed using the average of the days either side, eg `(a, nan, b) -> (a,
-(a+b)/2, b)` though this is just a plot.
+(a+b)/2, b)` though this is just a plot..
 """
 
 from __future__ import annotations
@@ -167,7 +167,7 @@ def main() -> mpl.figure.Figure:
             "font.family": "monospace",
         },
     ):
-        fig = plt.figure(figsize=(15, 10))
+        fig = plt.figure(figsize=(28, 10))
         ax_dict = fig.subplot_mosaic(LAYOUT)  # type: ignore[arg-type]
 
         # Plot rolling average
@@ -209,28 +209,13 @@ def main() -> mpl.figure.Figure:
         ax_dict["main"].spines["top"].set_visible(False)
         ax_dict["main"].spines["right"].set_visible(False)
 
-        # Just chosen from some trial and error
-        annotation_x_axis_idx = 27
-        _ = ax_dict["main"].annotate(
-            "Lost focus",
-            # where the arrow should end up
-            xy=(
-                df["datestamp"].iloc[annotation_x_axis_idx],
-                df["cat_daily_avg"].iloc[annotation_x_axis_idx],
-            ),
-            # where the text should be
-            xytext=(
-                df["datestamp"].iloc[annotation_x_axis_idx + 5],
-                df["cat_daily_avg"].iloc[annotation_x_axis_idx + 1] + 0.13,
-            ),
-            ha="center",
-            va="bottom",
-            arrowprops={
-                "arrowstyle": "->",
-                "connectionstyle": "arc3,rad=0.35",
-                "color": color.PINK_COLOUR,
-            },
-        )
+        # Set x-axis dates to just be day/month instead of year day month.
+        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
+        ax_dict["main"].xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))  # type: ignore[no-untyped-call]
+
+        for label in ax_dict["main"].get_xticklabels():
+            label.set_rotation(80)
+            label.set_ha("center")
 
         heaviest_idx = df["cat_daily_avg"].idxmax()
         _ = ax_dict["main"].annotate(
