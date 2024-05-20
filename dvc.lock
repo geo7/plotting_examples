@@ -499,10 +499,10 @@ stages:
     deps:
     - path: plotting_examples/y2024/cat_weight/plot.py
       hash: md5
-      md5: 779819b504eb519665c17c5efd2a0c40
-      size: 11063
+      md5: eccd49f223d1be3c79f5fa8a8d3bdbce
+      size: 11064
     outs:
     - path: images/y2024/cat_weight.png
       hash: md5
-      md5: 82eebb37fe6b78250fff80768aa34032
-      size: 1591000
+      md5: 317bc58384087b3e13098a02d17c17ac
+      size: 1601858
