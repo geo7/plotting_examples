@@ -199,7 +199,7 @@ def main() -> mpl.figure.Figure:
         )
 
         ax_dict["main"].set_ylabel("Weight kg")
-        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
+        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=7))  # type: ignore[no-untyped-call]
 
         for label in ax_dict["main"].get_xticklabels():
             label.set_rotation(80)
@@ -210,8 +210,8 @@ def main() -> mpl.figure.Figure:
         ax_dict["main"].spines["right"].set_visible(False)
 
         # Set x-axis dates to just be day/month instead of year day month.
-        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=1))  # type: ignore[no-untyped-call]
-        ax_dict["main"].xaxis.set_major_formatter(mdates.DateFormatter("%d/%m"))  # type: ignore[no-untyped-call]
+        ax_dict["main"].xaxis.set_major_locator(mdates.DayLocator(interval=7))  # type: ignore[no-untyped-call]
+        ax_dict["main"].xaxis.set_major_formatter(mdates.DateFormatter("%d/%m/%y"))  # type: ignore[no-untyped-call]
 
         for label in ax_dict["main"].get_xticklabels():
             label.set_rotation(80)
