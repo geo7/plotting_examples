@@ -67,3 +67,7 @@ format: pre-commit-run ## run formatters - pre-commit,ruff
 
 poetry.lock:
 	poetry lock --no-update
+
+install: poetry.lock
+	poetry install
+	@$(MAKE) --no-print-directory clean
